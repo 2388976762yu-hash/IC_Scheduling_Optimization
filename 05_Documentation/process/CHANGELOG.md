@@ -4,6 +4,18 @@
 
 ---
 
+## 2026-05-30
+
+### EXP-002：SPAN 数据批次因子网格（26 Scenario）
+
+- 数据：`Simio_Import_Data-SPAN.xlsx`，41 单，Ending 100h
+- 最优 Objective **50.6132**（MLot=1.0, SubLot=0.75）；最差 291.181（1.25/1.25）
+- Penalty 最高 **760**
+- **待优化**：Source 订单释放未按 DueTime 紧急度
+- GitHub 远程连接并 push
+
+---
+
 ## 2026-05-24
 
 ### Git 与文档体系

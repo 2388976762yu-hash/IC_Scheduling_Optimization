@@ -3,7 +3,7 @@
 > **用途**：供 Cursor / AI 助手跨会话读取，避免 token 截断后丢失项目记忆。  
 > **维护**：每次有模型改动、会议结论、实验结果、关键决策时更新「变更日志」和对应章节。  
 > **Git 文档（人类 + 论文）**：见 [`05_Documentation/`](../05_Documentation/README.md)  
-> **最后更新**：2026-05-24
+> **最后更新**：2026-05-30
 
 ---
 
@@ -13,9 +13,10 @@
 |----|------|
 | 项目 | SanDisk IC 后端制造 Simio 离散事件仿真 + 排程优化 |
 | **当前主模型** | `02_Simulation_Model/AUTO_Model2.0.spfx` |
-| 主数据 | `01_Data/Simio_Import_Data*.xlsx`（V1/V2 多版） |
+| 主数据 | **`01_Data/Simio_Import_Data-SPAN.xlsx`** |
 | 最新会议 | **第七次 2026/5/23**（执行依据） |
-| 当前阶段 | Make Span / 工序时间记录已打通 → 待数据基准化 + Experiment |
+| 当前阶段 | EXP-002 完成（26 场景）→ **待 Source 按 DueTime EDD 释放** |
+| GitHub | `2388976762yu-hash/IC_Scheduling_Optimization` |
 | 用户 | 喻炫琪（独自推进 Simio；导师王谦） |
 
 ---
@@ -195,6 +196,7 @@ DS_StationSpan = DS_T_End - DS_T_Start
 
 | 日期 | 变更 |
 |------|------|
+| 2026-05-30 | EXP-002 SPAN 26 场景；Objective_min=50.61；待 Source EDD 释放；GitHub push |
 | 2026-05-24 | 创建本 AI 过程文档 |
 | 2026-05-24 | 解压解析 AUTO_Model2.0.spfx；更新 `00_项目接手总说明.md` 至 Model 2.0 |
 | 2026-05-24 | 梳理第七次会议纪要；明确 Real vs DateTime、工序时间记录方案 |

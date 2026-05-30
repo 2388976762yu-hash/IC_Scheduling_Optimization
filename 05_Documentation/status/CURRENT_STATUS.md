@@ -1,6 +1,6 @@
 # 当前项目状态
 
-> **最后更新**：2026-05-24  
+> **最后更新**：2026-05-30  
 > **维护**：有重大进展、会议、实验完成后更新本节与待办清单。
 
 ---
@@ -9,79 +9,56 @@
 
 | 项 | 状态 |
 |----|------|
-| 项目阶段 | Model 2.0 已跑通 → Experiment 已接入 → 批次因子实验进行中 |
+| 项目阶段 | SPAN 数据 26 场景因子实验完成 → **待优化 Source 按交期释放** |
 | 主模型 | `AUTO_Model2.0.spfx` |
-| 最新会议 | 第七次（2026/5/23） |
-| 下一里程碑 | MLotFactor 敏感性实验 + ReleaseDate 基准化 |
+| 主数据 | **`01_Data/Simio_Import_Data-SPAN.xlsx`** |
+| 远程仓库 | GitHub `2388976762yu-hash/IC_Scheduling_Optimization` |
+| 下一里程碑 | Source EDD 释放 + EXP-003 复测 |
 
 ---
 
 ## 已完成
 
-- [x] Model 2.0 六工序 + Worker + 批次拆分/合并
-- [x] 各工序 `T_Start` / `T_End` 记录（Real 状态变量）
-- [x] `Penalty` 及对应逻辑
-- [x] Experiment1：MakeSpan / Penalty / Objective 三个 Response
-- [x] Properties：`MLotFactor`、`SubLotFactor` + Experiment Controls
-- [x] Scenario Generator 可用
-- [x] Experiment 首次跑通（基准 Scenario1）
+- [x] Model 2.0 + Experiment Controls（MLotFactor / SubLotFactor）
+- [x] EXP-001 基准跑通
+- [x] **EXP-002**：SPAN 数据 26 Scenario 全网格（2026-05-30）
+- [x] Git 本地仓库 + `05_Documentation/` 文档体系
+- [x] GitHub 远程连接与 push
 
 ---
 
-## 进行中
+## 进行中 / 待优化（P0）
 
-- [ ] Scenario Generator：MLot 0.8 / 1.0 / 1.2 三档对比（SubLot 固定 1.0）
-- [ ] Separator 确认已使用 `× MLotFactor` / `× SubLotFactor`
-- [ ] ReleaseDate 统一基准日 + 保留 DueDate 交期差
-- [ ] 派工：按 (DueDate − ReleaseDate) 升序，替代 FIFO
-
----
-
-## 待办（按优先级）
-
-| P | 任务 | 负责层 |
-|---|------|--------|
-| P0 | ReleaseDate / DueDate 基准化脚本或 Excel | 数据 |
-| P0 | 确认 MakeSpan 用 Mold_T_End 还是 Sink 整线时间 | 模型 + 论文口径 |
-| P1 | MLot / SubLot 敏感性实验（3～9 Scenario） | Experiment |
-| P1 | Penalty 在基准化日期后是否仍全 0 | 验证 |
-| P2 | OptQuest 在较优 Factor 区间内寻优 | Experiment |
-| P2 | 中芯国际同学校 batch / magazine 数据口径 | 外部 |
-| P3 | 开题报告 20 页 | 文档 |
+- [ ] **Source_Orders：按 DueDate / 交期紧迫度释放**（越紧急越早）
+  - 现状：释放未考虑 duetime，导致可避免的 Penalty（EXP-002 最高 760）
+  - 期望：EDD 或 `(DueDate - ReleaseDate)` 升序
+- [ ] 首队列 Server Selection：FIFO → EDD（与 Source 一致）
 
 ---
 
-## 阻塞 / 风险
+## 待办
 
-| 项 | 说明 |
-|----|------|
-| 数据口径 | QtyPerMLot 小数、Quantity per magazine 480 vs 960 待确认 |
-| 机器预分配 | 拆分后 entity 指定机台 — 导师查技术方案 |
-| 利用率 | Simio 报告含空等；论文主指标暂以 MakeSpan + Penalty 为主 |
-| Scenario Generator Min=0 | 会导致批次为 0，应用 0.8～1.2 |
-
----
-
-## 关键数值（最新基准）
-
-| 指标 | 值 | 条件 |
-|------|-----|------|
-| MakeSpan | 78.40 → 81.10（略有波动） | Mold_T_End，Ending 80～100h |
-| Penalty | 0 | 41 单 |
-| Objective | ≈ 0.7×MakeSpan | Penalty=0 时 |
-| 订单完成 | 41/41 | V1 基准 |
+| P | 任务 |
+|---|------|
+| P0 | 实现 Source 紧急度释放 + EXP-003 复跑 (1.0, 0.75) |
+| P1 | 确认 MakeSpan 口径（Mold_T_End vs Sink 整线） |
+| P2 | OptQuest 在较优因子区间寻优 |
+| P3 | 开题报告 |
 
 ---
 
-## 沟通节奏
+## EXP-002 关键数值（SPAN，2026-05-30）
 
-- 与导师：**周六晚 8 点**（暂定）
+| 指标 | 最优 | 最差 |
+|------|------|------|
+| Objective | **50.6132** (MLot=1.0, SubLot=0.75) | 291.181 (1.25/1.25) |
+| MakeSpan | 72.3045 | 97.3895 |
+| Penalty | 0（多场景） | **760** |
 
 ---
 
 ## 相关链接
 
+- [EXP-002 详情](../experiments/records/EXP-002_span_factor_grid.md)
 - [实验总表](../experiments/EXPERIMENT_LOG.md)
 - [变更日志](../process/CHANGELOG.md)
-- [决策记录](../process/DECISIONS.md)
-- [接手总说明](../../项目辅助材料/00_项目接手总说明.md)
