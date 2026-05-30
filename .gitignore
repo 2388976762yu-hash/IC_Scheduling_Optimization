@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+.venv/
+venv/
+
+# IDE / Editor
+.cursor/
+.vscode/
+*.swp
+*~
+Desktop.ini
+Thumbs.db
+.DS_Store
+
+# Office temp
+~$*.xlsx
+~$*.xls
+~$*.docx
+
+# Simio backups (duplicate of .spfx, large)
+*.backup
+
+# Old model archives (keep locally if needed; reduce repo size)
+02_Simulation_Model/old/
+
+# Simio run logs / stats (regenerable)
+**/Results/*.log
+**/Results/*.stats
+
+# Optional: uncomment to exclude large CSV reports (summaries go in 05_Documentation/experiments/)
+# 04_Output/*Results*.csv
+
+# Secrets
+.env
+*.env
+credentials.json

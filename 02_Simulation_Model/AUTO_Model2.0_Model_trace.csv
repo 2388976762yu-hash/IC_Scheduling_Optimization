@@ -1,0 +1,10 @@
+Time(Hours),EntityID,ObjectName,ProcessID,StepName,Action
+0.003757936507936508,M_LOT.3785,Model,98.Input_Taping_Entered,[Assign] Assign1,Unable to get value of property 'Assign.Assignments[1].AssignmentsStateVariableName'.
+0.003757936507936508,M_LOT.3785,Model,98.Input_Taping_Entered,[Assign] Assign1,Could not determine the row to use in referenced table or repeat group 'Table1'.
+0.003757936507936508,M_LOT.3785,Model,98.Input_Taping_Entered,[Assign] Assign1,"For possible causes, check whether table row references have been set correctly for the object, element, or token that is key to the property or expression evaluation."
+0.003757936507936508,M_LOT.3785,Model,98.Input_Taping_Entered,[Assign] Assign1,The following table selections were available at time of resolution:
+0.003757936507936508,M_LOT.3785,Model,98.Input_Taping_Entered,[Assign] Assign1,  Associated object (M_LOT.3785) references:
+0.003757936507936508,M_LOT.3785,Model,98.Input_Taping_Entered,[Assign] Assign1,"   Table references: Model.Orders[1], Model.Materials[9]"
+0.003757936507936508,M_LOT.3785,Model,98.Input_Taping_Entered,[Assign] Assign1,   Explicit selections: Model.Orders[1]
+0.003757936507936508,M_LOT.3785,Model,98.Input_Taping_Entered,[Assign] Assign1,   Potential rows: [None]
+
