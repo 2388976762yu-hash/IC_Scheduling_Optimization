@@ -20,6 +20,7 @@ Thumbs.db
 ~$*.xlsx
 ~$*.xls
 ~$*.docx
+~$*.doc
 
 # Simio backups (duplicate of .spfx, large)
 *.backup

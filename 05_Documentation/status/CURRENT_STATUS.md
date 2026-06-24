@@ -1,7 +1,6 @@
 # 当前项目状态
 
-> **最后更新**：2026-05-30  
-> **维护**：有重大进展、会议、实验完成后更新本节与待办清单。
+> **最后更新**：2026-05-30（EXP-003 完成后）
 
 ---
 
@@ -9,56 +8,40 @@
 
 | 项 | 状态 |
 |----|------|
-| 项目阶段 | SPAN 数据 26 场景因子实验完成 → **待优化 Source 按交期释放** |
-| 主模型 | `AUTO_Model2.0.spfx` |
-| 主数据 | **`01_Data/Simio_Import_Data-SPAN.xlsx`** |
-| 远程仓库 | GitHub `2388976762yu-hash/IC_Scheduling_Optimization` |
-| 下一里程碑 | Source EDD 释放 + EXP-003 复测 |
+| 项目阶段 | EXP-003 完成 → 待 DueDate **升序** + Source EDD |
+| 主模型 | **`AUTO_Model3.0-batchfactors.spfx`** |
+| 主数据 | `01_Data/Simio_Import_Data-SPAN.xlsx` |
+| GitHub | `2388976762yu-hash/IC_Scheduling_Optimization` |
+
+---
+
+## 最新实验 EXP-003（2026-05-30）
+
+| 指标 | 结果 | vs EXP-002 |
+|------|------|------------|
+| Objective_min | **52.38** (0.75/0.5) | 50.61 → 略差 |
+| Penalty_max | **700** | 760 → 略好 |
+| MakeSpan 范围 | 74.82～89.97 | — |
+| 变更 | Orders **DueDate 降序** | — |
 
 ---
 
 ## 已完成
 
-- [x] Model 2.0 + Experiment Controls（MLotFactor / SubLotFactor）
-- [x] EXP-001 基准跑通
-- [x] **EXP-002**：SPAN 数据 26 Scenario 全网格（2026-05-30）
-- [x] Git 本地仓库 + `05_Documentation/` 文档体系
-- [x] GitHub 远程连接与 push
+- [x] EXP-001 / EXP-002 / **EXP-003**
+- [x] Git + GitHub push
 
 ---
 
-## 进行中 / 待优化（P0）
+## 待办（P0）
 
-- [ ] **Source_Orders：按 DueDate / 交期紧迫度释放**（越紧急越早）
-  - 现状：释放未考虑 duetime，导致可避免的 Penalty（EXP-002 最高 760）
-  - 期望：EDD 或 `(DueDate - ReleaseDate)` 升序
-- [ ] 首队列 Server Selection：FIFO → EDD（与 Source 一致）
-
----
-
-## 待办
-
-| P | 任务 |
-|---|------|
-| P0 | 实现 Source 紧急度释放 + EXP-003 复跑 (1.0, 0.75) |
-| P1 | 确认 MakeSpan 口径（Mold_T_End vs Sink 整线） |
-| P2 | OptQuest 在较优因子区间寻优 |
-| P3 | 开题报告 |
-
----
-
-## EXP-002 关键数值（SPAN，2026-05-30）
-
-| 指标 | 最优 | 最差 |
-|------|------|------|
-| Objective | **50.6132** (MLot=1.0, SubLot=0.75) | 291.181 (1.25/1.25) |
-| MakeSpan | 72.3045 | 97.3895 |
-| Penalty | 0（多场景） | **760** |
+- [ ] **EXP-004**：DueDate **升序**（交期最早在前）复跑
+- [ ] Source_Orders 确认是否按表序释放；Server 队列改 EDD
+- [ ] 澄清降序 vs 升序对 Penalty 的影响
 
 ---
 
 ## 相关链接
 
-- [EXP-002 详情](../experiments/records/EXP-002_span_factor_grid.md)
+- [EXP-003](../experiments/records/EXP-003_duedate_desc_release_grid.md)
 - [实验总表](../experiments/EXPERIMENT_LOG.md)
-- [变更日志](../process/CHANGELOG.md)

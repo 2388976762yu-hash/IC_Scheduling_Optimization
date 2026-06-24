@@ -12,6 +12,7 @@
 | [`experiments/EXPERIMENT_LOG.md`](experiments/EXPERIMENT_LOG.md) | **实验总表**：所有 Experiment 索引 | 每次实验后 |
 | [`experiments/records/`](experiments/records/) | **单次实验详情** | 每次实验一篇 |
 | [`thesis/THESIS_NOTES.md`](thesis/THESIS_NOTES.md) | **论文素材**：可写入绪论/方法/实验的要点 | 随研究积累 |
+| [`../开题报告/开题报告输出/00_INDEX.md`](../开题报告/开题报告输出/00_INDEX.md) | **开题报告输出**（正文真源、文献、脱敏） | 开题阶段 |
 
 ## 与其他目录的关系
 

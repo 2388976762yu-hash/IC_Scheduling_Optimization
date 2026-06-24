@@ -4,7 +4,37 @@
 
 ---
 
+## 2026-06-24
+
+### 开题报告重大修订
+
+- 扩展 `section_content.py`：第一节 ~5160 汉字 + 32 篇 GB/T7714 文献列表
+- 纳入 `项目辅助材料/参考文献/` 3 篇唯一 PDF（Lin2015、Hoppe2025、Luttmann2026）
+- 更正 Panwalkar 引用年份 1977；新增 REFERENCE_VERIFICATION.md
+- 重新生成 `02_开题报告_提交版.doc` / `.docx`
+
+---
+
+## 2026-05-24
+
+### 开题报告初稿完成
+
+- 输出目录：`开题报告/开题报告输出/`
+- 题目：**多目标优化的半导体后端制造生产排程研究**
+- 正文 + Word 提交版 + BIBLIOGRAPHY.yaml（28 篇）+ 脱敏扫描通过
+- 索引：THESIS_NOTES.md ↔ 00_INDEX.md
+
+---
+
 ## 2026-05-30
+
+### EXP-003：Orders DueDate 降序后因子网格复跑
+
+- 模型：`AUTO_Model3.0-batchfactors.spfx`
+- ~25 Scenario × 5 Replication，Ending 100h，运行 ~2412s
+- Objective_min **52.38** (0.75/0.5)；Penalty_max **700**
+- 相对 EXP-002：最优 Objective 略差，最差 Penalty 略好（760→700）
+- 待做：DueDate **升序** + Source EDD（EXP-004）
 
 ### EXP-002：SPAN 数据批次因子网格（26 Scenario）
 

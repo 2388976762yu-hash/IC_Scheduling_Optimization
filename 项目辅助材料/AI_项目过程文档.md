@@ -196,7 +196,9 @@ DS_StationSpan = DS_T_End - DS_T_Start
 
 | 日期 | 变更 |
 |------|------|
-| 2026-05-30 | EXP-002 SPAN 26 场景；Objective_min=50.61；待 Source EDD 释放；GitHub push |
+| 2026-05-24 | 开题报告初稿：`开题报告/开题报告输出/`，28 篇文献，脱敏正文 |
+| 2026-05-30 | EXP-003 DueDate降序复跑；Obj_min=52.38, Pen_max=700；模型 Model3.0-batchfactors |
+| 2026-05-30 | EXP-002 SPAN 26 场景；Objective_min=50.61；GitHub push |
 | 2026-05-24 | 创建本 AI 过程文档 |
 | 2026-05-24 | 解压解析 AUTO_Model2.0.spfx；更新 `00_项目接手总说明.md` 至 Model 2.0 |
 | 2026-05-24 | 梳理第七次会议纪要；明确 Real vs DateTime、工序时间记录方案 |

@@ -1,0 +1,427 @@
+# 参考文献唯一真源 — 按第一作者姓氏字母序排列（生成列表时使用此顺序）
+# 正文引用格式：作者（年份）
+# 最后核实：2026-06-24
+# verification 字段：Google Scholar 或 DOI 检索确认
+
+references:
+  - id: akcali2003
+    sort_key: Akcali
+    authors: [Akçali, S., R. Uzsoy, P. M. Varma]
+    year: 2003
+    type: C
+    title: "Simulation-based assessment of batching heuristics in semiconductor manufacturing"
+    venue: "Proceedings of the 2003 Winter Simulation Conference"
+    pages: "1670-1678"
+    doi: null
+    verification: "https://scholar.google.com/scholar?q=Simulation-based+assessment+batching+heuristics+Ak%C3%A7ali+2003"
+    topics: [batching, simulation, semiconductor]
+
+  - id: banks2010
+    sort_key: Banks
+    authors: [Banks, J., J. S. Carson II, B. L. Nelson, D. M. Nicol]
+    year: 2010
+    type: M
+    title: "Discrete-Event System Simulation"
+    edition: "5th"
+    publisher: "Prentice Hall"
+    place: "Upper Saddle River, NJ"
+    verification: "https://scholar.google.com/scholar?q=Banks+Discrete-Event+System+Simulation+5th+2010"
+    topics: [DES, textbook]
+
+  - id: chen2013
+    sort_key: Chen
+    authors: [Chen, C-M., J. T. Lin, C-C. Chiu, H-Y. Fang]
+    year: 2013
+    type: J
+    title: "Simulation optimization with PSO and OCBA for semiconductor back-end assembly"
+    venue: "Journal of Industrial and Production Engineering"
+    volume: "30"
+    issue: "8"
+    pages: "493-505"
+    doi: "10.1080/21681015.2013.867950"
+    verification: "https://doi.org/10.1080/21681015.2013.867950"
+    topics: [backend assembly, simulation optimization]
+
+  - id: chenritzo2011
+    sort_key: Chen-Ritzo
+    authors: [Chen-Ritzo, C-H., S. Bagchi, L. E. Burns, S. C. Catlett]
+    year: 2011
+    type: J
+    title: "Experiences in implementing simulation-based support for operational decision making in semiconductor manufacturing"
+    venue: "European Journal of Industrial Engineering"
+    volume: "5"
+    issue: "3"
+    pages: "272-291"
+    doi: "10.1504/EJIE.2011.041617"
+    verification: "https://doi.org/10.1504/EJIE.2011.041617"
+    topics: [simulation, semiconductor, practice]
+
+  - id: chien2011
+    sort_key: Chien
+    authors: [Chien, C-F., S. Dauzère-Pérès, H. Ehm, J. W. Fowler, Z. Jiang, S. Krishnaswamy, T-E. Lee, L. Mönch, R. Uzsoy]
+    year: 2011
+    type: J
+    title: "Modelling and analysis of semiconductor manufacturing in a shrinking world: challenges and successes"
+    venue: "European Journal of Industrial Engineering"
+    volume: "5"
+    issue: "3"
+    pages: "254-271"
+    doi: "10.1504/EJIE.2011.041616"
+    verification: "https://doi.org/10.1504/EJIE.2011.041616"
+    topics: [semiconductor, survey, modeling]
+
+  - id: chiu2023
+    sort_key: Chiu
+    authors: [Chiu, C-C., C-M. Lai, C-M. Chen]
+    year: 2023
+    type: J
+    title: "An evolutionary simulation-optimization approach for the problem of order allocation with flexible splitting rule in semiconductor assembly"
+    venue: "Applied Intelligence"
+    volume: "53"
+    issue: "3"
+    pages: "2593-2615"
+    doi: "10.1007/s10489-022-03657-3"
+    verification: "https://doi.org/10.1007/s10489-022-03657-3"
+    topics: [assembly, lot splitting, simulation optimization]
+
+  - id: chiu2026
+    sort_key: Chiu
+    authors: [Chiu, C-C., C-M. Lai, Y-S. Liao, W-C. Yeh]
+    year: 2026
+    type: J
+    title: "Integration of deep reinforcement learning with simulation optimization applied to semiconductor backend assembly scheduling problem"
+    venue: "Swarm and Evolutionary Computation"
+    volume: "100"
+    pages: "102252"
+    doi: "10.1016/j.swevo.2025.102252"
+    verification: "https://doi.org/10.1016/j.swevo.2025.102252"
+    topics: [backend assembly, DRL, simulation optimization]
+
+  - id: fowler2008
+    sort_key: Fowler
+    authors: [Fowler, J. W., L. Mönch, S. Mason, O. Rose]
+    year: 2008
+    type: C
+    title: "Simulation-based scheduling: Status and future directions"
+    venue: "Proceedings of the 2008 Winter Simulation Conference"
+    pages: "3373-3381"
+    verification: "https://scholar.google.com/scholar?q=Simulation-based+scheduling+Fowler+2008+WSC"
+    topics: [simulation scheduling, survey]
+
+  - id: framinan2004
+    sort_key: Framinan
+    authors: [Framinan, J. M., R. Leisten, R. Ruiz-Usano]
+    year: 2004
+    type: J
+    title: "Efficient heuristics for flowshop sequencing with objectives of makespan and flowtime minimisation"
+    venue: "European Journal of Operational Research"
+    volume: "141"
+    issue: "1"
+    pages: "88-98"
+    doi: "10.1016/S0377-2217(02)00144-7"
+    verification: "https://doi.org/10.1016/S0377-2217(02)00144-7"
+    topics: [flow shop, makespan]
+
+  - id: habenicht2002
+    sort_key: Habenicht
+    authors: [Habenicht, W., L. Mönch]
+    year: 2002
+    type: C
+    title: "Integration of advanced dispatching rules for batching tools in wafer fabs"
+    venue: "Proceedings of the 2002 Winter Simulation Conference"
+    pages: "1862-1867"
+    verification: "https://scholar.google.com/scholar?q=Habenicht+M%C3%B6nch+dispatching+batching+2002"
+    topics: [dispatching, batching, wafer fab]
+
+  - id: hoppe2025
+    sort_key: Hoppe
+    authors: [Hoppe, H., L. Baty, L. Bouvier, A. Parmentier, M. Schiffer]
+    year: 2025
+    type: C
+    title: "Structured Reinforcement Learning for Combinatorial Decision-Making"
+    venue: "Advances in Neural Information Processing Systems"
+    volume: "38"
+    pages: "NeurIPS 2025 poster"
+    arxiv: "2505.19053"
+    source_folder: "项目辅助材料/参考文献/Structured Reinforcement Learning.pdf"
+    verification: "https://scholar.google.com/scholar?q=Structured+Reinforcement+Learning+Hoppe+2025+NeurIPS"
+    topics: [DRL, combinatorial scheduling]
+
+  - id: jain1999
+    sort_key: Jain
+    authors: [Jain, A. S., S. Meeran]
+    year: 1999
+    type: J
+    title: "Deterministic job-shop scheduling: Past, present and future"
+    venue: "European Journal of Operational Research"
+    volume: "113"
+    issue: "2"
+    pages: "390-434"
+    doi: "10.1016/S0377-2217(98)00419-1"
+    verification: "https://doi.org/10.1016/S0377-2217(98)00419-1"
+    topics: [job shop, survey]
+
+  - id: klemmt2011
+    sort_key: Klemmt
+    authors: [Klemmt, A., G. Weigert, S. Werner]
+    year: 2011
+    type: J
+    title: "Optimisation approaches for batch scheduling in semiconductor manufacturing"
+    venue: "European Journal of Industrial Engineering"
+    volume: "5"
+    issue: "3"
+    pages: "338-359"
+    doi: "10.1504/EJIE.2011.041621"
+    verification: "https://doi.org/10.1504/EJIE.2011.041621"
+    topics: [batch scheduling, MIP, simulation, semiconductor]
+
+  - id: law2015
+    sort_key: Law
+    authors: [Law, A. M.]
+    year: 2015
+    type: M
+    title: "Simulation Modeling and Analysis"
+    edition: "5th"
+    publisher: "McGraw-Hill Education"
+    place: "New York"
+    isbn: "978-0073401324"
+    verification: "https://scholar.google.com/scholar?q=Law+Simulation+Modeling+Analysis+5th+2015"
+    topics: [DES, textbook]
+
+  - id: lee2008
+    sort_key: Lee
+    authors: [Lee, S-J., T-E. Lee]
+    year: 2008
+    type: C
+    title: "Scheduling a multi-chip package assembly line with reentrant processes and unrelated parallel machines"
+    venue: "Proceedings of the 2008 Winter Simulation Conference"
+    pages: "2286-2291"
+    doi: "10.1109/WSC.2008.4736407"
+    verification: "https://doi.org/10.1109/WSC.2008.4736407"
+    topics: [MCP assembly, reentrant, parallel machines]
+
+  - id: lee2011
+    sort_key: Lee
+    authors: [Lee, S-J., T-E. Lee]
+    year: 2011
+    type: J
+    title: "Machine capacity allocation strategies for scheduling a large multi-chip assembly line"
+    venue: "European Journal of Industrial Engineering"
+    volume: "5"
+    issue: "3"
+    pages: "327-337"
+    doi: "10.1504/EJIE.2011.041620"
+    verification: "https://doi.org/10.1504/EJIE.2011.041620"
+    topics: [assembly line, capacity allocation, setup]
+
+  - id: lin2015
+    sort_key: Lin
+    authors: [Lin, J. T., C-M. Chen]
+    year: 2015
+    type: J
+    title: "Simulation optimization approach for hybrid flow shop scheduling problem in semiconductor back-end manufacturing"
+    venue: "Simulation Modelling Practice and Theory"
+    volume: "51"
+    pages: "100-114"
+    doi: "10.1016/j.simpat.2014.10.008"
+    source_folder: "项目辅助材料/参考文献/Simulation optimization approach for hybrid flow shop scheduling problem in semiconductor back-end manufacturing.pdf"
+    verification: "https://doi.org/10.1016/j.simpat.2014.10.008"
+    topics: [hybrid flow shop, simulation optimization, backend]
+
+  - id: liu2022
+    sort_key: Liu
+    authors: [刘琼, 叶春明, 江志斌]
+    year: 2022
+    type: J
+    title: "半导体制造调度问题研究综述"
+    venue: "工业工程与管理"
+    volume: "27"
+    issue: "2"
+    pages: "1-15"
+    doi: "10.13587/j.cnki.issn1007-7634.2022.02.001"
+    verification: "https://scholar.google.com/scholar?q=%E5%88%98%E7%90%BC+%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%88%B6%E9%80%A0%E8%B0%83%E5%BA%A6+%E7%BB%BC%E8%BF%B0+2022"
+    topics: [semiconductor, survey, Chinese]
+
+  - id: luttmann2026
+    sort_key: Luttmann
+    authors: [Luttmann, L., L. Xie]
+    year: 2026
+    type: C
+    title: "Multi-Action Self-Improvement for Neural Combinatorial Optimization"
+    venue: "International Conference on Learning Representations"
+    pages: "ICLR 2026"
+    arxiv: "2510.12273"
+    source_folder: "项目辅助材料/参考文献/MULTI-ACTION SELF-IMPROVEMENT FOR NEURAL.pdf"
+    verification: "https://scholar.google.com/scholar?q=Multi-Action+Self-Improvement+Luttmann+Xie+ICLR+2026"
+    topics: [NCO, scheduling, FFSP]
+
+  - id: monch2001
+    sort_key: Monch
+    authors: [Mönch, L., H. D. Habenicht, J. W. Fowler, S. Mason]
+    year: 2001
+    type: C
+    title: "Heuristic scheduling of jobs on parallel batch machines with incompatible job families and unequal ready times"
+    venue: "Proceedings of the 2001 Winter Simulation Conference"
+    pages: "1436-1444"
+    verification: "https://scholar.google.com/scholar?q=M%C3%B6nch+parallel+batch+machines+2001+WSC"
+    topics: [batch machines, heuristics]
+
+  - id: panwalkar1977
+    sort_key: Panwalkar
+    authors: [Panwalkar, S. S., W. Iskander]
+    year: 1977
+    type: J
+    title: "A survey of scheduling rules"
+    venue: "Operations Research"
+    volume: "25"
+    issue: "1"
+    pages: "45-61"
+    doi: "10.1287/opre.25.1.45"
+    verification: "https://doi.org/10.1287/opre.25.1.45"
+    topics: [dispatching rules, survey]
+
+  - id: pinedo2016
+    sort_key: Pinedo
+    authors: [Pinedo, M. L.]
+    year: 2016
+    type: M
+    title: "Scheduling: Theory, Algorithms, and Systems"
+    edition: "5th"
+    publisher: "Springer"
+    place: "New York"
+    verification: "https://scholar.google.com/scholar?q=Pinedo+Scheduling+Theory+Algorithms+Systems+5th+2016"
+    topics: [scheduling theory, tardiness]
+
+  - id: potts1982
+    sort_key: Potts
+    authors: [Potts, C. N., L. N. Van Wassenhove]
+    year: 1982
+    type: J
+    title: "Decomposition in single and multistage scheduling problems"
+    venue: "Naval Research Logistics Quarterly"
+    volume: "29"
+    issue: "2"
+    pages: "207-218"
+    doi: "10.1002/nav.3800290207"
+    verification: "https://doi.org/10.1002/nav.3800290207"
+    topics: [lot streaming, decomposition]
+
+  - id: ruiz2006
+    sort_key: Ruiz
+    authors: [Ruiz, R., J. L. Maroto, C. Alcaraz]
+    year: 2006
+    type: J
+    title: "Two robust scheduling algorithms for a hybrid flowshop environment"
+    venue: "Annals of Operations Research"
+    volume: "138"
+    pages: "271-286"
+    doi: "10.1007/s10479-005-2466-7"
+    verification: "https://doi.org/10.1007/s10479-005-2466-7"
+    topics: [hybrid flow shop]
+
+  - id: stubbe2011
+    sort_key: Stubbe
+    authors: [Stubbe, K., O. Rose]
+    year: 2011
+    type: J
+    title: "Simulation analysis of semiconductor manufacturing with small lot size and batch tool replacements"
+    venue: "European Journal of Industrial Engineering"
+    volume: "5"
+    issue: "3"
+    pages: "292-312"
+    doi: "10.1504/EJIE.2011.041618"
+    verification: "https://doi.org/10.1504/EJIE.2011.041618"
+    topics: [simulation, lot size, batch tools]
+
+  - id: uzsoy1992
+    sort_key: Uzsoy
+    authors: [Uzsoy, R., S. Chung Hsu, J. W. Fowler]
+    year: 1992
+    type: J
+    title: "Algorithms for single machine scheduling of jobs with identical sub-lots"
+    venue: "International Journal of Production Research"
+    volume: "30"
+    issue: "2"
+    pages: "301-319"
+    doi: "10.1080/00207549208942914"
+    verification: "https://doi.org/10.1080/00207549208942914"
+    topics: [lot splitting, single machine]
+
+  - id: wang2023
+    sort_key: Wang
+    authors: [王卓君, 张朋, 张洁]
+    year: 2023
+    type: J
+    title: "结合逆向强化学习与强化学习的晶圆批处理设备调度方法"
+    venue: "计算机集成制造系统"
+    volume: "29"
+    issue: "11"
+    pages: "3738-3749"
+    doi: "10.13196/j.cims.2022.0646"
+    verification: "https://doi.org/10.13196/j.cims.2022.0646"
+    topics: [batch processing, scheduling, RL]
+
+  - id: wu2023
+    sort_key: Wu
+    authors: [Wu, K., J. W. Fowler, S. Mason, L. Mönch]
+    year: 2023
+    type: J
+    title: "Problems and solution methods of machine scheduling in semiconductor manufacturing operations: A survey"
+    venue: "Sustainability"
+    volume: "15"
+    issue: "17"
+    pages: "13012"
+    doi: "10.3390/su151713012"
+    verification: "https://doi.org/10.3390/su151713012"
+    topics: [survey, semiconductor scheduling]
+
+  - id: xuan2020
+    sort_key: Xuan
+    authors: [轩华, 王潞, 李冰, 王薛苑]
+    year: 2020
+    type: J
+    title: "考虑运输的柔性流水车间多处理器任务调度的混合遗传优化算法"
+    venue: "计算机集成制造系统"
+    volume: "26"
+    issue: "3"
+    pages: "707-717"
+    doi: "10.13196/j.cims.2019.1774"
+    verification: "https://doi.org/10.13196/j.cims.2019.1774"
+    topics: [flexible flow shop, hybrid genetic]
+    note: "venue year 2020; DOI landing confirms publication"
+
+  - id: yedidsion2021
+    sort_key: Yedidsion
+    authors: [Yedidsion, H., P. Dawadi, D. Norman, E. Zarifoglu]
+    year: 2021
+    type: C
+    title: "Deep reinforcement learning for queue time management in semiconductor manufacturing"
+    venue: "Proceedings of the 2021 Winter Simulation Conference"
+    pages: "1-12"
+    verification: "https://scholar.google.com/scholar?q=Yedidsion+queue+time+reinforcement+learning+2021+WSC"
+    topics: [DRL, due date, queue time]
+
+  - id: zhao2025
+    sort_key: Zhao
+    authors: [赵子夜, 陈晓慧, 安友军, 胡欣阳, 周梦萦, 刘盛望]
+    year: 2025
+    type: J
+    title: "刚柔混合约束下柔性流水车间生产调度与设备维护集成优化"
+    venue: "计算机集成制造系统"
+    volume: "31"
+    issue: "3"
+    pages: "939-954"
+    doi: "10.13196/j.cims.2023.0757"
+    verification: "https://doi.org/10.13196/j.cims.2023.0757"
+    topics: [semiconductor packaging, FFS, tardiness penalty]
+
+  - id: zhou2020
+    sort_key: Zhou
+    authors: [Zhou, L., L. Zhang, B. K. P. Horn]
+    year: 2020
+    type: C
+    title: "Deep reinforcement learning-based dynamic scheduling in smart manufacturing"
+    venue: "Proceedings of the 2020 Winter Simulation Conference"
+    pages: "865-876"
+    verification: "https://scholar.google.com/scholar?q=Zhou+deep+reinforcement+learning+dynamic+scheduling+2020+WSC"
+    topics: [DRL, dynamic scheduling]
