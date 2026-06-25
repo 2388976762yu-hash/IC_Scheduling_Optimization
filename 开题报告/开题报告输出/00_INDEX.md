@@ -12,8 +12,10 @@
 | **`02_开题报告_提交版.doc`** | **学院模板填表版（唯一提交文件）** | 自模板复制，脚本只写 R11/R13/R15 |
 | [01_开题报告正文.md](01_开题报告正文.md) | 结构说明与版本对照 | 指向表格内容 |
 | [process/FORMAT_SPEC.md](process/FORMAT_SPEC.md) | 标点、引用、GB/T 7714 规范 | 格式真源 |
+| [process/WRITING_RULES.md](process/WRITING_RULES.md) | **写作规则活文档**（可随时改；含实验表述、括号、写回流程） | **写作策略真源** |
 | [process/section_content.py](process/section_content.py) | SECTION1/2/3 正文 prose | **内容真源** |
 | [process/fill_template.py](process/fill_template.py) | 填表脚本 + 参考文献生成 | 生成 `.doc` |
+| [process/ensure_doc_closed.py](process/ensure_doc_closed.py) | **工作前检查**：doc 是否已关闭/可写 | 跑脚本前必检 |
 | [process/OUTLINE.md](process/OUTLINE.md) | 章节大纲与页数预算 | 结构真源 |
 | [process/BIBLIOGRAPHY.yaml](process/BIBLIOGRAPHY.yaml) | 文献元数据 | **参考文献唯一真源**（32 篇） |
 | [process/REFERENCE_VERIFICATION.md](process/REFERENCE_VERIFICATION.md) | 逐条 Scholar/DOI 核实 | 核实记录 |
@@ -73,9 +75,14 @@
 
 ## 重新生成提交版
 
+**工作前**：在 WPS/Word 中保存并关闭开题报告 doc，然后：
+
 ```bash
 cd 开题报告/开题报告输出/process
-python fill_template.py
+python ensure_doc_closed.py          # 必须通过
+python fill_template.py              # 内置 auto_close 预检
 ```
+
+若检查失败：`python ensure_doc_closed.py --close` 或 `.\release_word_lock.ps1 -CloseWps`
 
 **基础信息**（姓名、题目、课题来源、导师、评审组等）请在 [`2120253828-喻炫琪-研究生开题报告.doc`](../2120253828-喻炫琪-研究生开题报告.doc) 中维护；脚本**只**更新 R11/R13/R15 正文。详见 [`process/METADATA_POLICY.md`](process/METADATA_POLICY.md)。

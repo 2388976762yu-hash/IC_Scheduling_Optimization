@@ -17,10 +17,14 @@
 | **2026-06-24** | 重新生成提交版 doc/docx | 02_开题报告_提交版.doc/.docx |
 | **2026-06-24** | fill_template 改为仅写 R11/R13/R15；基础信息以模板 doc 为准 | fill_template.py, FORMAT_SPEC.md |
 | **2026-06-24** | 新增 METADATA_POLICY；辅助 md 不再复制个人信息 | METADATA_POLICY.md, 01_, OUTLINE, TITLE_LOCK |
+| **2026-06-24** | 正文减括号堆砌；参考文献改中文/外文分列排序 | section_content.py, fill_template.py, FORMAT_SPEC.md |
+| **2026-06-24** | 工作前 doc 关闭检查 ensure_doc_closed.py；fill 自动预检 | ensure_doc_closed.py, METADATA_POLICY.md |
+| **2026-06-24** | 正文去除 EXP 内部编号；改中文实验名称表述 | section_content.py, FORMAT_SPEC.md |
+| **2026-06-24** | 新增 WRITING_RULES.md 活文档（规则可随时修改） | WRITING_RULES.md, 00_INDEX, FORMAT_SPEC |
 
 ## 2026-06-24 修订说明
 
 - 第一节新增 1.1—1.3 产业/业务/数据分节，扩展四线文献综述与 3.6 课题定位
 - 第二节补充研究方法（DES、Scenario Generator、EDD、敏感性）、实验方案与可行性
-- 第三节对齐 Model3.0 与 EXP-001—003 数字
+- 第三节对齐 Model3.0 与初步仿真数字（正文不用 EXP 编号）
 - 参考文献 28→32；文件夹 5 PDF 映射为 3 篇唯一文献

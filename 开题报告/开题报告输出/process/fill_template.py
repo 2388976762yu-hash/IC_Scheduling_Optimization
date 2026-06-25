@@ -11,6 +11,8 @@
 import os
 import shutil
 import stat
+import subprocess
+import time
 import win32com.client
 from pathlib import Path
 
@@ -20,6 +22,7 @@ except ImportError:
     yaml = None
 
 from section_content import SECTION1_BODY, SECTION2, SECTION3
+from ensure_doc_closed import ensure_documents_closed
 
 ROOT = Path(__file__).resolve().parents[1]
 PROCESS = Path(__file__).resolve().parent
@@ -87,19 +90,47 @@ def format_gbt7714(ref):
     return f"{author_str}. {title}[J]. {venue}, {year}, {vol_issue}: {pages}."
 
 
+def _first_author(ref):
+    authors = ref.get("authors", [])
+    return authors[0] if authors else ""
+
+
+def _is_chinese_ref(ref):
+    return any("\u4e00" <= c <= "\u9fff" for c in _first_author(ref))
+
+
 def load_references():
     if yaml is None:
         raise RuntimeError("PyYAML required: pip install pyyaml")
     data = yaml.safe_load(BIBLIOGRAPHY.read_text(encoding="utf-8"))
     refs = data.get("references", [])
-    return sorted(refs, key=lambda r: r["sort_key"].upper())
+    chinese = sorted(
+        [r for r in refs if _is_chinese_ref(r)],
+        key=lambda r: r["sort_key"].upper(),
+    )
+    foreign = sorted(
+        [r for r in refs if not _is_chinese_ref(r)],
+        key=lambda r: r["sort_key"].upper(),
+    )
+    return chinese, foreign
 
 
 def build_reference_block():
-    refs = load_references()
+    chinese, foreign = load_references()
     lines = []
-    for i, ref in enumerate(refs, start=1):
-        lines.append(f"[{i}] {format_gbt7714(ref)}")
+    idx = 1
+    if chinese:
+        lines.append("中文文献")
+        for ref in chinese:
+            lines.append(f"[{idx}] {format_gbt7714(ref)}")
+            idx += 1
+    if foreign:
+        if chinese:
+            lines.append("")
+        lines.append("外文文献")
+        for ref in foreign:
+            lines.append(f"[{idx}] {format_gbt7714(ref)}")
+            idx += 1
     return "\n".join(lines)
 
 
@@ -155,16 +186,19 @@ def verify_metadata_unchanged(word, doc):
     t2 = doc.Tables(2)
     tables = {1: t1, 2: t2}
     tpl_doc = word.Documents.Open(str(TEMPLATE.resolve()))
-    tpl_t1 = tpl_doc.Tables(1)
-    tpl_t2 = tpl_doc.Tables(2)
-    tpl_tables = {1: tpl_t1, 2: tpl_t2}
-    mismatches = []
-    for table_idx, row, col in METADATA_CHECK_KEYS:
-        tpl_val = _cell_text(tpl_tables[table_idx], row, col)
-        out_val = _cell_text(tables[table_idx], row, col)
-        if tpl_val != out_val:
-            mismatches.append((table_idx, row, col, tpl_val, out_val))
-    tpl_doc.Close(SaveChanges=False)
+    try:
+        tpl_t1 = tpl_doc.Tables(1)
+        tpl_t2 = tpl_doc.Tables(2)
+        tpl_tables = {1: tpl_t1, 2: tpl_t2}
+        mismatches = []
+        for table_idx, row, col in METADATA_CHECK_KEYS:
+            tpl_val = _cell_text(tpl_tables[table_idx], row, col)
+            out_val = _cell_text(tables[table_idx], row, col)
+            if tpl_val != out_val:
+                mismatches.append((table_idx, row, col, tpl_val, out_val))
+    finally:
+        tpl_doc.Close(SaveChanges=False)
+
     if mismatches:
         details = "\n".join(
             f"  T{ti}R{r}C{c}: template={tpl!r} output={out!r}"
@@ -176,7 +210,35 @@ def verify_metadata_unchanged(word, doc):
         )
 
 
+def close_word_app(word):
+    """Close all documents and quit Word COM (wdDoNotSaveChanges=0)."""
+    try:
+        while word.Documents.Count > 0:
+            word.Documents(1).Close(SaveChanges=0)
+    except Exception:
+        pass
+    try:
+        word.Quit(SaveChanges=0)
+    except Exception:
+        pass
+    # 脚本启动的 Word 偶发 Quit 后仍残留，会锁 doc；仅在此情况下结束 WINWORD
+    time.sleep(0.8)
+    listed = subprocess.run(
+        ["tasklist", "/FI", "IMAGENAME eq WINWORD.EXE", "/NH"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if listed.stdout and "WINWORD.EXE" in listed.stdout:
+        subprocess.run(
+            ["taskkill", "/F", "/IM", "WINWORD.EXE"],
+            capture_output=True,
+            check=False,
+        )
+
+
 def main():
+    ensure_documents_closed(auto_close=True)
     section1 = build_section1()
     if OUTPUT.exists():
         try:
@@ -189,7 +251,7 @@ def main():
     shutil.copy2(TEMPLATE, OUTPUT)
     ensure_writable(OUTPUT)
 
-    word = win32com.client.Dispatch("Word.Application")
+    word = win32com.client.DispatchEx("Word.Application")
     word.Visible = False
     word.DisplayAlerts = 0
     doc = None
@@ -213,13 +275,17 @@ def main():
         saved = True
     finally:
         if doc is not None:
-            doc.Close(SaveChanges=saved)
-        word.Quit()
+            try:
+                doc.Close(SaveChanges=saved)
+            except Exception:
+                pass
+        close_word_app(word)
 
     ensure_writable(OUTPUT)
 
     char_count = len(section1) + len(SECTION2) + len(SECTION3)
-    ref_count = len(load_references())
+    chinese, foreign = load_references()
+    ref_count = len(chinese) + len(foreign)
     print(f"Filled: {OUTPUT}")
     print(f"References: {ref_count}")
     print(f"Approx chars (sections): {char_count}")

@@ -1,0 +1,35 @@
+中文文献
+[1] 刘琼，等. 半导体制造调度问题研究综述[J]. 工业工程与管理, 2022, 27(2): 1-15.
+[2] 王卓君，等. 结合逆向强化学习与强化学习的晶圆批处理设备调度方法[J]. 计算机集成制造系统, 2023, 29(11): 3738-3749.
+[3] 轩华，等. 考虑运输的柔性流水车间多处理器任务调度的混合遗传优化算法[J]. 计算机集成制造系统, 2020, 26(3): 707-717.
+[4] 赵子夜，等. 刚柔混合约束下柔性流水车间生产调度与设备维护集成优化[J]. 计算机集成制造系统, 2025, 31(3): 939-954.
+
+外文文献
+[5] Akçali, et al.. Simulation-based assessment of batching heuristics in semiconductor manufacturing[C]//Proceedings of the 2003 Winter Simulation Conference. 2003: 1670-1678.
+[6] Banks, et al.. Discrete-Event System Simulation[M]. 5th ed. Upper Saddle River, NJ: Prentice Hall, 2010.
+[7] Chen, et al.. Simulation optimization with PSO and OCBA for semiconductor back-end assembly[J]. Journal of Industrial and Production Engineering, 2013, 30(8): 493-505.
+[8] Chen-Ritzo, et al.. Experiences in implementing simulation-based support for operational decision making in semiconductor manufacturing[J]. European Journal of Industrial Engineering, 2011, 5(3): 272-291.
+[9] Chien, et al.. Modelling and analysis of semiconductor manufacturing in a shrinking world: challenges and successes[J]. European Journal of Industrial Engineering, 2011, 5(3): 254-271.
+[10] Chiu, et al.. An evolutionary simulation-optimization approach for the problem of order allocation with flexible splitting rule in semiconductor assembly[J]. Applied Intelligence, 2023, 53(3): 2593-2615.
+[11] Chiu, et al.. Integration of deep reinforcement learning with simulation optimization applied to semiconductor backend assembly scheduling problem[J]. Swarm and Evolutionary Computation, 2026, 100: 102252.
+[12] Fowler, et al.. Simulation-based scheduling: Status and future directions[C]//Proceedings of the 2008 Winter Simulation Conference. 2008: 3373-3381.
+[13] Framinan, et al.. Efficient heuristics for flowshop sequencing with objectives of makespan and flowtime minimisation[J]. European Journal of Operational Research, 2004, 141(1): 88-98.
+[14] Habenicht, et al.. Integration of advanced dispatching rules for batching tools in wafer fabs[C]//Proceedings of the 2002 Winter Simulation Conference. 2002: 1862-1867.
+[15] Hoppe, et al.. Structured Reinforcement Learning for Combinatorial Decision-Making[C]//Advances in Neural Information Processing Systems. 2025: NeurIPS 2025 poster.
+[16] Jain, et al.. Deterministic job-shop scheduling: Past, present and future[J]. European Journal of Operational Research, 1999, 113(2): 390-434.
+[17] Klemmt, et al.. Optimisation approaches for batch scheduling in semiconductor manufacturing[J]. European Journal of Industrial Engineering, 2011, 5(3): 338-359.
+[18] Law, A. M.. Simulation Modeling and Analysis[M]. 5th ed. New York: McGraw-Hill Education, 2015.
+[19] Lee, et al.. Scheduling a multi-chip package assembly line with reentrant processes and unrelated parallel machines[C]//Proceedings of the 2008 Winter Simulation Conference. 2008: 2286-2291.
+[20] Lee, et al.. Machine capacity allocation strategies for scheduling a large multi-chip assembly line[J]. European Journal of Industrial Engineering, 2011, 5(3): 327-337.
+[21] Lin, et al.. Simulation optimization approach for hybrid flow shop scheduling problem in semiconductor back-end manufacturing[J]. Simulation Modelling Practice and Theory, 2015, 51: 100-114.
+[22] Luttmann, et al.. Multi-Action Self-Improvement for Neural Combinatorial Optimization[C]//International Conference on Learning Representations. 2026: ICLR 2026.
+[23] Mönch, et al.. Heuristic scheduling of jobs on parallel batch machines with incompatible job families and unequal ready times[C]//Proceedings of the 2001 Winter Simulation Conference. 2001: 1436-1444.
+[24] Panwalkar, et al.. A survey of scheduling rules[J]. Operations Research, 1977, 25(1): 45-61.
+[25] Pinedo, M. L.. Scheduling: Theory, Algorithms, and Systems[M]. 5th ed. New York: Springer, 2016.
+[26] Potts, et al.. Decomposition in single and multistage scheduling problems[J]. Naval Research Logistics Quarterly, 1982, 29(2): 207-218.
+[27] Ruiz, et al.. Two robust scheduling algorithms for a hybrid flowshop environment[J]. Annals of Operations Research, 2006, 138: 271-286.
+[28] Stubbe, et al.. Simulation analysis of semiconductor manufacturing with small lot size and batch tool replacements[J]. European Journal of Industrial Engineering, 2011, 5(3): 292-312.
+[29] Uzsoy, et al.. Algorithms for single machine scheduling of jobs with identical sub-lots[J]. International Journal of Production Research, 1992, 30(2): 301-319.
+[30] Wu, et al.. Problems and solution methods of machine scheduling in semiconductor manufacturing operations: A survey[J]. Sustainability, 2023, 15(17): 13012.
+[31] Yedidsion, et al.. Deep reinforcement learning for queue time management in semiconductor manufacturing[C]//Proceedings of the 2021 Winter Simulation Conference. 2021: 1-12.
+[32] Zhou, et al.. Deep reinforcement learning-based dynamic scheduling in smart manufacturing[C]//Proceedings of the 2020 Winter Simulation Conference. 2020: 865-876.
