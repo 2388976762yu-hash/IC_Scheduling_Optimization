@@ -57,9 +57,11 @@
 
 | 英文 | 正文用语 | 说明 |
 |------|----------|------|
-| MLot | 制造批次MLot | — |
+| Order | 订单Order | 计划释放单元，Orders 表一行 |
+| MLot | 制造批次MLot | Separator 链第一级 |
 | Magazine | **弹夹批次Magazine** | 载体/弹夹单元；**不是**「杂志批次」 |
-| SubLot | 子批次SubLot | — |
+| SubLot | 子批次SubLot | 最小加工单元 |
+| 批次链 | Order→MLot→Magazine→SubLot | 仿真四层结构 |
 | MLotFactor / SubLotFactor | 批次缩放因子MLotFactor、SubLotFactor | Model Properties |
 | Separator / Combiner | Separator/Combiner拆分合并逻辑 | 正文避免 `Separator_MLot` 等内部对象名 |
 | BOM | 物料清单BOM | — |
@@ -90,9 +92,11 @@
 
 | 内部 | 正文用语 |
 |------|----------|
-| SPAN 文件名 | **行业脱敏SPAN基准数据集** |
+| Simio_Import_Data-SPAN.xlsx | **企业脱敏 Simio 导入数据** |
 | AUTO_Model* | **六工序Simio模型**（不写内部文件名） |
 | Source_Orders | **订单源Source**释放逻辑 |
+
+Orders/Materials/MachineConfig 字段见 Architecture 与 Excel 真源。
 
 ## 目标与绩效表述
 
@@ -107,11 +111,11 @@
 
 | 章节 | 写什么 | 不写什么 |
 |------|--------|----------|
-| §1.3 研究场景 | 数据、场景、**拟**开展实验步骤 | 已跑 Objective/MakeSpan 最优值 |
-| §1 意义/综述 | 文献缺口、**拟检验**机制 | 「前期已完成」+ 实验数值 |
-| §2 实验方案 | 未来步骤 | — |
-| §2.4 可行性 | 数据/平台/方法**条件具备** | 实验最优值证明可行 |
-| §3 研究基础 | 模型框架、工具链、文献积累 | 实验数值、Penalty 峰值 |
+| §1.3 研究场景 | 企业脱敏**原数据字段**、**拟**开展实验 | 已跑 Objective/MakeSpan 最优值 |
+| §1 意义/综述 | 文献缺口、**预期**贡献 | 具体实验数字 |
+| §2 实验方案/可行性 | 未来步骤、条件具备 | 用实验最优值证明可行 |
+| §3 研究基础 | 模型框架、**阶段性标定实验与数值**（简要） | 学位论文结论口吻 |
+| 全文 | 客观表述 | **「导师……」**句式 |
 
 ## 文风禁写（机翻痕迹）
 

@@ -7,8 +7,8 @@
 |----|---------------------|----------|--------|
 | C-001 | 六工序封装后端：D/S→DA→WB→Mold→B/G→Taping | Architecture §1.2 | — |
 | C-002 | 459 台加工设备，DA/WB 为关键资源 | Architecture §2.1 | — |
-| C-003 | 41 张订单代表一周基准负荷 | DECISIONS D-007; 会议纪要 | — |
-| C-004 | 三级批次：MLot→弹夹批次Magazine→SubLot | Architecture §6 | — |
+| C-003 | 41 条订单、16 种物料，企业一周排产样本 | Simio_Import_Data Orders/Materials | — |
+| C-004 | 批次链：Order→MLot→弹夹批次Magazine→SubLot | Architecture §6.1 | — |
 | C-005 | Objective = 0.7×MakeSpan + 0.3×Penalty | DECISIONS D-004 | — |
 | C-006 | 基准情景：MakeSpan=78.40, Penalty=0, Objective=54.88（因子均为 1.0） | EXP-001 | — |
 | C-007 | 26 情景因子网格扫描：Objective 最优 50.61（MLot=1.0, SubLot=0.75） | EXP-002 | — |
@@ -35,5 +35,5 @@
 
 | 禁止写入正文 | 正文改用 |
 |--------------|----------|
-| 内部项目代号数据文件名 | 「行业脱敏 SPAN 基准数据集」 |
+| 内部项目代号数据文件名 | 「企业脱敏 Simio 导入数据」 |
 | 企业合作背景 | 「典型存储类半导体封装后端产线（已脱敏）」 |
