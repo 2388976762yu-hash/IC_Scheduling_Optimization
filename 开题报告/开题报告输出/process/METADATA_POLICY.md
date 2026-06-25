@@ -62,7 +62,7 @@
 0. **写作策略**以 [`WRITING_RULES.md`](WRITING_RULES.md) 为唯一真源；格式以 [`FORMAT_SPEC.md`](FORMAT_SPEC.md)；表头以本文件。**规则可随时修改**，改后 [`WRITING_LOG.md`](WRITING_LOG.md) 留痕。
 
 1. 你改**基础信息** → 只改 `2120253828-…开题报告.doc`。
-2. 改正文 bulk / 文献 → 改 `section_content.py` / `BIBLIOGRAPHY.yaml`。**手调 02 后勿跑脚本**，除非 bulk 改字；需要时 `python fill_template.py`（默认就地更新，不用 `--from-template`）。
+2. 改正文 bulk / 文献 → 改 `section_content.py` / `BIBLIOGRAPHY.yaml` → `python audit_proposal.py --word` → 需要时 `python fill_template.py`（默认就地更新 02）。
 3. 你改**提交版版式与细节** → 直接在 `02_开题报告_提交版.doc` 里改（WPS 手调）；**以你手改后的 02 为提交真源**。标题与正文之间、段间**不要空行**；字体段落见 `FORMAT_SPEC.md`。
 4. AI 或脚本**不要**把 markdown 里的旧个人信息写回 Word，也**不要**在生成时“同步更新”模板里已有的表格字段。
 5. 运行 `fill_template.py` 前请**关闭** WPS/Word 中已打开的 `02_开题报告_提交版.doc`（见上文「工作前检查」）；脚本会自动预检，仍占用则中止。

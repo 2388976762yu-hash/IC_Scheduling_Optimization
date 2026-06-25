@@ -18,7 +18,7 @@
 | **文献真源** | [process/BIBLIOGRAPHY.yaml](../../开题报告/开题报告输出/process/BIBLIOGRAPHY.yaml)（**32 篇**） |
 | **文献核实** | [process/REFERENCE_VERIFICATION.md](../../开题报告/开题报告输出/process/REFERENCE_VERIFICATION.md) |
 | **脱敏** | 正文不含企业/品牌名；见 [ANONYMIZATION.md](../../开题报告/开题报告输出/process/ANONYMIZATION.md) |
-| **重新生成** | `cd 开题报告/开题报告输出/process && python fill_template.py` |
+| **重新生成** | `cd 开题报告/开题报告输出/process && python fill_template.py`；提交前 `python audit_proposal.py --word` |
 
 ---
 
@@ -36,7 +36,7 @@
 - **方法**：Simio 离散事件仿真 + Experiment / 多场景对比
 - **决策变量**：M Lot / Sub Lot 批次因子（Properties）；后续派工规则
 - **目标**：Make Span 最小化 + 延期惩罚最小化（Objective = 0.7×MakeSpan + 0.3×Penalty）
-- **数据**：行业脱敏订单 41 单基准（一周工作量）
+- **数据**：企业脱敏 Simio 导入数据，41 订单基准（一周工作量）
 
 ---
 
@@ -54,7 +54,7 @@
 - 引用：`02_Simulation_Model/modeldetail/AUTO_Model2.0_Architecture_Document.md`
 - 加工时间：`CurrentQty / UPH`
 - DA/WB：Transfer 3min + Setup 10min
-- 批次三级：MLot → Mag → SubLot → Combiner
+- 批次链：Order → MLot → Magazine（弹夹批次）→ SubLot → Combiner
 
 ---
 
@@ -85,7 +85,7 @@
 
 ## 参考文献
 
-- 开题报告已录入 28 篇：见 [BIBLIOGRAPHY.yaml](../../开题报告/开题报告输出/process/BIBLIOGRAPHY.yaml)
+- 开题报告已录入 32 篇：见 [BIBLIOGRAPHY.yaml](../../开题报告/开题报告输出/process/BIBLIOGRAPHY.yaml)
 - 正文引用格式：著者-出版年（如 Klemmt et al. (2011)）
 
 ---

@@ -29,6 +29,7 @@ python audit_proposal.py --word     # 含 Word R11/R13/R15 空行
 | D5 | `audit_anonymization.py` | **脱敏** | 企业名/品牌/内部文件名零命中 |
 | D6 | `audit_consistency.py` | **表述一致** | 数据来源用语、批次链、Objective 公式一致 |
 | D7 | `audit_citations.py` | **引用可核** | 正文引用年份 ⊆ BIBLIOGRAPHY；无 `[1]` 式正文引用 |
+| D8 | `audit_doc_truth.py` | **文档真源一致** | 00_INDEX/WRITING_RULES/THESIS_NOTES/ANONYMIZATION 与正文不冲突 |
 
 ---
 
@@ -62,6 +63,13 @@ python audit_proposal.py --word     # 含 Word R11/R13/R15 空行
 
 - 正文只用著者-出版年，不用 `[1]`。
 - 抽样校验：正文出现的 `(20xx)` 年份在 `BIBLIOGRAPHY.yaml` 中有对应条目。
+
+### D8 文档真源一致（`audit_doc_truth.py`）
+
+- `00_INDEX.md` / `WRITING_RULES.md` 真源表与文献篇数（32 篇）一致
+- `THESIS_NOTES.md` 与正文用语对齐（企业脱敏 Simio、32 篇）
+- `section_content.py` 禁「行业脱敏」旧称
+- `ANONYMIZATION.md` 标明「导师…」正文禁用
 
 ---
 

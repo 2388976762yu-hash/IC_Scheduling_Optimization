@@ -129,7 +129,7 @@ SECTION2 = _compact_spacing(r"""1. 研究目标、研究内容和拟解决的关
 
 研究分四阶段推进：第一阶段完成 Orders 表 ReleaseDate/DueDate 基准化与企业脱敏数据固化；第二阶段完善 Simio 六工序模型及 Experiment 绩效体系；第三阶段开展批次因子网格、EDD 策略及负荷校准实验；第四阶段汇总结果、撰写学位论文。
 
-技术路线如下：行业脱敏数据准备→Simio DES建模，含六工序、批次、搬运与换型Setup→定义MakeSpan/Penalty/Objective→Scenario Generator因子扫描→EDD释放/派工优化→负荷敏感性实验→结论与论文定稿。
+技术路线如下：企业脱敏Simio导入数据准备→Simio DES建模，含六工序、批次、搬运与换型Setup→定义MakeSpan/Penalty/Objective→Scenario Generator因子扫描→EDD释放/派工优化→负荷敏感性实验→结论与论文定稿。
 
 2.2 研究方法
 

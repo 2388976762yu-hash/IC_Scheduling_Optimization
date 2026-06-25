@@ -16,11 +16,12 @@ Desktop.ini
 Thumbs.db
 .DS_Store
 
-# Office temp
+# Office temp / debug dumps (may contain PII)
 ~$*.xlsx
 ~$*.xls
 ~$*.docx
 ~$*.doc
+**/template_cells_dump.txt
 
 # Simio backups (duplicate of .spfx, large)
 *.backup

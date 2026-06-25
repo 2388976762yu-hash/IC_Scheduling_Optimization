@@ -17,6 +17,7 @@ SCRIPTS = (
     "audit_anonymization.py",
     "audit_consistency.py",
     "audit_citations.py",
+    "audit_doc_truth.py",
 )
 
 
@@ -47,7 +48,7 @@ def main() -> int:
         print("See AUDIT_DIMENSIONS.md for dimension definitions.")
         return 1
 
-    print("OK: all proposal audits passed (D1–D7).")
+    print("OK: all proposal audits passed (D1–D8).")
     return 0
 
 

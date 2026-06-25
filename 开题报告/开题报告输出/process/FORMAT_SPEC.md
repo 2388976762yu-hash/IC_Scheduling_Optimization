@@ -62,6 +62,9 @@
   2. 空一行 → 小标题 **外文文献** → 英文字母序，编号接排
 - 格式：**GB/T 7714—2015**
 - 生成：`python fill_template.py`（从 YAML 写入 R11）
+- 提交前：`python audit_proposal.py --word`（见 [`AUDIT_DIMENSIONS.md`](AUDIT_DIMENSIONS.md)）
+
+细则见 [`WRITING_RULES.md`](WRITING_RULES.md) §1 真源层级。
 
 ### 文献类型标识
 

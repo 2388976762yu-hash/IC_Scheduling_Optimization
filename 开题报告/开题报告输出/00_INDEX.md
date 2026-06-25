@@ -17,7 +17,8 @@
 | **题目** | [`process/TITLE_LOCK.md`](process/TITLE_LOCK.md) | — |
 | **脱敏** | [`process/ANONYMIZATION.md`](process/ANONYMIZATION.md) | — |
 | **事实数字** | [`process/CLAIMS.md`](process/CLAIMS.md) | 内部 EXP 仅作内部真源列 |
-| **术语** | [`process/TERMINOLOGY.md`](process/TERMINOLOGY.md) | — |
+| **术语** | [`process/TERMINOLOGY.md`](process/TERMINOLOGY.md) | 正文专名 |
+| **审计** | [`process/AUDIT_DIMENSIONS.md`](process/AUDIT_DIMENSIONS.md) + [`audit_proposal.py`](process/audit_proposal.py) | 提交前 D1–D8 |
 | **学院提交** | [`02_开题报告_提交版.doc`](02_开题报告_提交版.doc) | 手调版式后以 02 为准 |
 
 规则变更 → [`process/WRITING_LOG.md`](process/WRITING_LOG.md)。
@@ -37,7 +38,7 @@
 | [process/fill_template.py](process/fill_template.py) | 填表脚本 |
 | [process/ensure_doc_closed.py](process/ensure_doc_closed.py) | 写 doc 前检查 |
 | [process/audit_spacing.py](process/audit_spacing.py) | **空行审计**（`--word` 检查 02） |
-| [process/audit_proposal.py](process/audit_proposal.py) | **一键审计 D1–D7**（`--word` 含 Word 空行） |
+| [process/audit_proposal.py](process/audit_proposal.py) | **一键审计 D1–D8**（`--word` 含 Word 空行） |
 | [process/AUDIT_DIMENSIONS.md](process/AUDIT_DIMENSIONS.md) | 多维度审计说明 |
 | [process/TERMINOLOGY.md](process/TERMINOLOGY.md) | **术语精校真源** |
 | [process/OUTLINE.md](process/OUTLINE.md) | 章节大纲 |
@@ -74,6 +75,7 @@
 cd 开题报告\开题报告输出\process
 python ensure_doc_closed.py
 python fill_template.py
+python audit_proposal.py --word
 ```
 
-表头请在模板 doc 维护。详见 [`METADATA_POLICY.md`](process/METADATA_POLICY.md) 与 [`WRITING_RULES.md`](process/WRITING_RULES.md)。
+表头请在模板 doc 维护。真源层级见 [`WRITING_RULES.md`](process/WRITING_RULES.md) §1；审计维度见 [`AUDIT_DIMENSIONS.md`](process/AUDIT_DIMENSIONS.md)。

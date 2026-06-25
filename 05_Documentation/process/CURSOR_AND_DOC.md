@@ -52,6 +52,7 @@
 | `fill_template.py` | 只写 R11/R13/R15；默认**就地更新** 02 |
 | `ensure_doc_closed.py` | 写 doc 前检查 WPS/Word 是否占用 |
 | `audit_spacing.py --word` | 审计空段是否为 0 |
+| `audit_proposal.py --word` | 一键审计 D1–D8（含 Word 空行） |
 | `scripts/push-via-clash.ps1` | push 走 Clash（见 `GIT_AND_NETWORK.md`） |
 
 规则与 Skill（本仓库，非 Marketplace）：
