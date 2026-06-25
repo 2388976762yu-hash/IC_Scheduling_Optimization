@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """开题报告 SECTION1/2/3 正文（不含参考文献列表，列表由 fill_template 从 BIBLIOGRAPHY.yaml 生成）
 
-勿在本文件写入封面/表头基础信息（姓名、导师、课题来源等）——见 METADATA_POLICY.md。
+写作策略真源：WRITING_RULES.md。勿写表头字段 — 见 METADATA_POLICY.md。
 """
 
 SECTION1_BODY = r"""1. 论文选题的背景

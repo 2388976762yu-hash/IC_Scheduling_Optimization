@@ -1,9 +1,10 @@
 # 题目锁定记录
 
+> 写作策略见 [`WRITING_RULES.md`](WRITING_RULES.md)。表头见 [`METADATA_POLICY.md`](METADATA_POLICY.md)。
+
 | 项 | 内容 |
 |----|------|
-| **锁定日期** | 2026-05-24 |
-| **最后确认** | 2026-06-24 |
+| **锁定日期** | 2026-05-24 || **最后确认** | 2026-06-24 |
 | **中文题目** | **多目标优化的半导体后端制造生产排程研究** |
 | **英文题目** | Multi-Objective Optimization of Production Scheduling in Semiconductor Backend Manufacturing |
 

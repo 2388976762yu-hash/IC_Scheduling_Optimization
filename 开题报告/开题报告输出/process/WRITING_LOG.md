@@ -21,6 +21,7 @@
 | **2026-06-24** | 工作前 doc 关闭检查 ensure_doc_closed.py；fill 自动预检 | ensure_doc_closed.py, METADATA_POLICY.md |
 | **2026-06-24** | 正文去除 EXP 内部编号；改中文实验名称表述 | section_content.py, FORMAT_SPEC.md |
 | **2026-06-24** | 新增 WRITING_RULES.md 活文档（规则可随时修改） | WRITING_RULES.md, 00_INDEX, FORMAT_SPEC |
+| **2026-06-24** | 整合写作规则真源：WRITING_RULES 策略 / FORMAT 排版 / METADATA 表头；CLAIMS 对齐中文实验名 | WRITING_RULES, FORMAT_SPEC, METADATA, CLAIMS, 00_INDEX |
 
 ## 2026-06-24 修订说明
 

@@ -5,84 +5,70 @@
 
 ---
 
-## 文档地图
+## 真源层级（唯一、不冲突）
 
-| 文件 | 用途 | 真源角色 |
-|------|------|----------|
-| **`02_开题报告_提交版.doc`** | **学院模板填表版（唯一提交文件）** | 自模板复制，脚本只写 R11/R13/R15 |
-| [01_开题报告正文.md](01_开题报告正文.md) | 结构说明与版本对照 | 指向表格内容 |
-| [process/FORMAT_SPEC.md](process/FORMAT_SPEC.md) | 标点、引用、GB/T 7714 规范 | 格式真源 |
-| [process/WRITING_RULES.md](process/WRITING_RULES.md) | **写作规则活文档**（可随时改；含实验表述、括号、写回流程） | **写作策略真源** |
-| [process/section_content.py](process/section_content.py) | SECTION1/2/3 正文 prose | **内容真源** |
-| [process/fill_template.py](process/fill_template.py) | 填表脚本 + 参考文献生成 | 生成 `.doc` |
-| [process/ensure_doc_closed.py](process/ensure_doc_closed.py) | **工作前检查**：doc 是否已关闭/可写 | 跑脚本前必检 |
-| [process/OUTLINE.md](process/OUTLINE.md) | 章节大纲与页数预算 | 结构真源 |
-| [process/BIBLIOGRAPHY.yaml](process/BIBLIOGRAPHY.yaml) | 文献元数据 | **参考文献唯一真源**（32 篇） |
-| [process/REFERENCE_VERIFICATION.md](process/REFERENCE_VERIFICATION.md) | 逐条 Scholar/DOI 核实 | 核实记录 |
-| [process/CLAIMS.md](process/CLAIMS.md) | 事实断言 ↔ 内部真源 ↔ 脱敏表述 | 校验真源 |
-| [process/ANONYMIZATION.md](process/ANONYMIZATION.md) | 脱敏规则与扫描记录 | 合规真源 |
-| [process/WRITING_LOG.md](process/WRITING_LOG.md) | 撰写/修改日志 | 过程记录 |
-| [process/LITERATURE_REVIEW_NOTES.md](process/LITERATURE_REVIEW_NOTES.md) | 综述分条笔记 | 写作素材 |
-| [process/METADATA_POLICY.md](process/METADATA_POLICY.md) | **基础信息维护规则**（模板 doc 为唯一真源） |
-| [process/TITLE_LOCK.md](process/TITLE_LOCK.md) | 题目锁定与脱敏禁止项 |
+| 领域 | 唯一真源 | 说明 |
+|------|----------|------|
+| **写作策略** | [`process/WRITING_RULES.md`](process/WRITING_RULES.md) | 人称、括号、实验表述、禁写项；**可随时修改** |
+| **正文内容** | [`process/section_content.py`](process/section_content.py) | R11/R13/R15 prose |
+| **格式排版** | [`process/FORMAT_SPEC.md`](process/FORMAT_SPEC.md) | 表格行、GB/T 7714、字体 |
+| **表头信息** | [`2120253828-…开题报告.doc`](../2120253828-喻炫琪-研究生开题报告.doc) | [`METADATA_POLICY.md`](process/METADATA_POLICY.md) |
+| **参考文献** | [`process/BIBLIOGRAPHY.yaml`](process/BIBLIOGRAPHY.yaml) | 32 篇 |
+| **题目** | [`process/TITLE_LOCK.md`](process/TITLE_LOCK.md) | — |
+| **脱敏** | [`process/ANONYMIZATION.md`](process/ANONYMIZATION.md) | — |
+| **事实数字** | [`process/CLAIMS.md`](process/CLAIMS.md) | 内部 EXP 仅作内部真源列 |
+| **学院提交** | [`02_开题报告_提交版.doc`](02_开题报告_提交版.doc) | 手调版式后以 02 为准 |
+
+规则变更 → [`process/WRITING_LOG.md`](process/WRITING_LOG.md)。
 
 ---
 
-## 规模估计（2026-06-24 修订版）
+## 文档地图
+
+| 文件 | 用途 |
+|------|------|
+| **`02_开题报告_提交版.doc`** | 学院提交 Word（脚本只 bulk 写 R11/R13/R15 文字） |
+| [01_开题报告正文.md](01_开题报告正文.md) | 结构索引 |
+| [process/WRITING_RULES.md](process/WRITING_RULES.md) | **写作策略真源** |
+| [process/FORMAT_SPEC.md](process/FORMAT_SPEC.md) | 格式与著录真源 |
+| [process/METADATA_POLICY.md](process/METADATA_POLICY.md) | 表头与 doc 工作流 |
+| [process/section_content.py](process/section_content.py) | 正文内容真源 |
+| [process/fill_template.py](process/fill_template.py) | 填表脚本 |
+| [process/ensure_doc_closed.py](process/ensure_doc_closed.py) | 写 doc 前检查 |
+| [process/OUTLINE.md](process/OUTLINE.md) | 章节大纲 |
+| [process/BIBLIOGRAPHY.yaml](process/BIBLIOGRAPHY.yaml) | 文献元数据 |
+| [process/CLAIMS.md](process/CLAIMS.md) | 事实断言登记 |
+| [process/ANONYMIZATION.md](process/ANONYMIZATION.md) | 脱敏规范 |
+| [process/WRITING_LOG.md](process/WRITING_LOG.md) | 修改日志 |
+| [process/TITLE_LOCK.md](process/TITLE_LOCK.md) | 题目锁定 |
+
+---
+
+## 规模估计（2026-06-24）
 
 | 项 | 数值 |
 |----|------|
-| 参考文献 | **32 篇**（含文件夹 3 篇唯一 PDF） |
-| 第一节正文中文字 | **~5 160**（不含文献列表） |
+| 参考文献 | **32 篇** |
 | 三节正文汉字合计 | **~7 310**（不含文献列表） |
-| 含 GB/T 7714 列表总字符 | **~19 000**（约 15—18 页打印量） |
 
 ---
 
-## 只读参考（不修改）
+## 项目交叉索引（内部，正文不引 EXP 编号）
 
 | 路径 | 说明 |
 |------|------|
-| [../2120253828-喻炫琪-研究生开题报告.doc](../2120253828-喻炫琪-研究生开题报告.doc) | 学院 Word 模板 |
-| [../商学院学术学位硕士研究生开题报告及中期考核实施细则（2025-10-22）.pdf](../商学院学术学位硕士研究生开题报告及中期考核实施细则（2025-10-22）.pdf) | 实施细则 |
-
----
-
-## 项目真源（数字与决策，正文经 CLAIMS 脱敏后引用）
-
-| 路径 | 说明 |
-|------|------|
-| [../../05_Documentation/process/DECISIONS.md](../../05_Documentation/process/DECISIONS.md) | 目标函数、因子定义等 ADR |
-| [../../05_Documentation/experiments/records/](../../05_Documentation/experiments/records/) | EXP-001～003 实验数字 |
-| [../../05_Documentation/thesis/THESIS_NOTES.md](../../05_Documentation/thesis/THESIS_NOTES.md) | 论文素材索引 |
-| [../../02_Simulation_Model/modeldetail/AUTO_Model2.0_Architecture_Document.md](../../02_Simulation_Model/modeldetail/AUTO_Model2.0_Architecture_Document.md) | 模型架构 |
-| [../../项目辅助材料/参考文献/](../../项目辅助材料/参考文献/) | 5 PDF（3 篇唯一文献） |
-
----
-
-## 双向索引
-
-- 本目录 ← [`05_Documentation/thesis/THESIS_NOTES.md`](../../05_Documentation/thesis/THESIS_NOTES.md) §开题报告
-- 实验数字 ← [`05_Documentation/experiments/EXPERIMENT_LOG.md`](../../05_Documentation/experiments/EXPERIMENT_LOG.md)
-
----
-
-## 脱敏原则（摘要）
-
-开题报告正文及 Word **不得出现**企业名、品牌名、可识别合作方信息。详见 [process/ANONYMIZATION.md](process/ANONYMIZATION.md)。
+| [../../05_Documentation/experiments/](../../05_Documentation/experiments/) | EXP 工作日志（内部） |
+| [../../05_Documentation/process/DECISIONS.md](../../05_Documentation/process/DECISIONS.md) | 技术决策 ADR |
+| [../../05_Documentation/thesis/THESIS_NOTES.md](../../05_Documentation/thesis/THESIS_NOTES.md) | 论文素材 |
 
 ---
 
 ## 重新生成提交版
 
-**工作前**：在 WPS/Word 中保存并关闭开题报告 doc，然后：
-
-```bash
-cd 开题报告/开题报告输出/process
-python ensure_doc_closed.py          # 必须通过
-python fill_template.py              # 内置 auto_close 预检
+```powershell
+cd 开题报告\开题报告输出\process
+python ensure_doc_closed.py
+python fill_template.py
 ```
 
-若检查失败：`python ensure_doc_closed.py --close` 或 `.\release_word_lock.ps1 -CloseWps`
-
-**基础信息**（姓名、题目、课题来源、导师、评审组等）请在 [`2120253828-喻炫琪-研究生开题报告.doc`](../2120253828-喻炫琪-研究生开题报告.doc) 中维护；脚本**只**更新 R11/R13/R15 正文。详见 [`process/METADATA_POLICY.md`](process/METADATA_POLICY.md)。
+表头请在模板 doc 维护。详见 [`METADATA_POLICY.md`](process/METADATA_POLICY.md) 与 [`WRITING_RULES.md`](process/WRITING_RULES.md)。

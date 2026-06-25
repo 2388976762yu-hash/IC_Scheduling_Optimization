@@ -1,4 +1,6 @@
-# 开题报告基础信息维护规则
+# 开题报告基础信息维护规则（表头与脚本真源）
+
+> 写作策略 → [`WRITING_RULES.md`](WRITING_RULES.md)。格式排版 → [`FORMAT_SPEC.md`](FORMAT_SPEC.md)。**本文件只管表头、脚本写入范围与 doc 工作流。**
 
 ## 工作前检查（必做）
 
@@ -57,7 +59,7 @@
 
 ## 协作约定
 
-0. **写作规则**以 [`WRITING_RULES.md`](WRITING_RULES.md) 为准；该文件**可随时修改**，改后须在 [`WRITING_LOG.md`](WRITING_LOG.md) 留痕，并视需要同步 `section_content.py` 与 02。
+0. **写作策略**以 [`WRITING_RULES.md`](WRITING_RULES.md) 为唯一真源；格式以 [`FORMAT_SPEC.md`](FORMAT_SPEC.md)；表头以本文件。**规则可随时修改**，改后 [`WRITING_LOG.md`](WRITING_LOG.md) 留痕。
 
 1. 你改**基础信息** → 只改 `2120253828-…开题报告.doc`。
 2. 改正文 bulk / 文献 → 改 `section_content.py` / `BIBLIOGRAPHY.yaml`；需要时再运行 `fill_template.py`（**会覆盖** R11/R13/R15 文字，可能打乱你已调的版式）。
