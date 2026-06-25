@@ -12,6 +12,10 @@
 - 新增 `scripts/push-via-clash.ps1`
 - 更新根 `README.md`、`05_Documentation/README.md` 工作流
 
+### Cursor / Word 文档说明
+
+- 新增 `process/CURSOR_AND_DOC.md`：Marketplace 无开题 doc 插件；MCP docx 与 fill_template 分工
+
 ---
 
 ## 2026-06-24

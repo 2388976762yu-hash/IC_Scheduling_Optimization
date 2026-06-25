@@ -10,6 +10,7 @@
 | [`process/CHANGELOG.md`](process/CHANGELOG.md) | **变更日志**：按日期记录做了什么 | 每次提交前 |
 | [`process/DECISIONS.md`](process/DECISIONS.md) | **决策记录**：为什么这样选 | 有重要决策时 |
 | [`process/GIT_AND_NETWORK.md`](process/GIT_AND_NETWORK.md) | **Git / Clash 代理**：push 走 7890 | 网络或 push 失败时 |
+| [`process/CURSOR_AND_DOC.md`](process/CURSOR_AND_DOC.md) | **Cursor / MCP / Word**：Marketplace 与 `.doc` 工作流 | 问「有没有 doc 插件」时 |
 | [`experiments/EXPERIMENT_LOG.md`](experiments/EXPERIMENT_LOG.md) | **实验总表**：所有 Experiment 索引 | 每次实验后 |
 | [`experiments/records/`](experiments/records/) | **单次实验详情** | 每次实验一篇 |
 | [`thesis/THESIS_NOTES.md`](thesis/THESIS_NOTES.md) | **论文素材**：可写入绪论/方法/实验的要点 | 随研究积累 |
