@@ -4,6 +4,16 @@
 
 ---
 
+## 2026-06-25
+
+### Git push 走 Clash 文档化
+
+- 新增 `process/GIT_AND_NETWORK.md`：Clash 7890、git proxy、Agent 说明
+- 新增 `scripts/push-via-clash.ps1`
+- 更新根 `README.md`、`05_Documentation/README.md` 工作流
+
+---
+
 ## 2026-06-24
 
 ### 开题报告重大修订

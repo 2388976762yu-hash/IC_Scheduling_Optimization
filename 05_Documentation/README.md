@@ -9,6 +9,7 @@
 | [`status/CURRENT_STATUS.md`](status/CURRENT_STATUS.md) | **当前状态**：阶段、待办、阻塞项 | 每周 / 有重大进展时 |
 | [`process/CHANGELOG.md`](process/CHANGELOG.md) | **变更日志**：按日期记录做了什么 | 每次提交前 |
 | [`process/DECISIONS.md`](process/DECISIONS.md) | **决策记录**：为什么这样选 | 有重要决策时 |
+| [`process/GIT_AND_NETWORK.md`](process/GIT_AND_NETWORK.md) | **Git / Clash 代理**：push 走 7890 | 网络或 push 失败时 |
 | [`experiments/EXPERIMENT_LOG.md`](experiments/EXPERIMENT_LOG.md) | **实验总表**：所有 Experiment 索引 | 每次实验后 |
 | [`experiments/records/`](experiments/records/) | **单次实验详情** | 每次实验一篇 |
 | [`thesis/THESIS_NOTES.md`](thesis/THESIS_NOTES.md) | **论文素材**：可写入绪论/方法/实验的要点 | 随研究积累 |
@@ -30,6 +31,7 @@
 3. 更新 `status/CURRENT_STATUS.md` 待办勾选
 4. 在 `process/CHANGELOG.md` 追加日期条目
 5. `git commit`
+6. `git push origin main`（**经 Clash**，见 [`process/GIT_AND_NETWORK.md`](process/GIT_AND_NETWORK.md)）
 
 ## 实验编号规则
 
