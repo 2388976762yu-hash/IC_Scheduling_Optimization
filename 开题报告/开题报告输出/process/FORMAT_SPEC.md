@@ -49,7 +49,7 @@
 ## 正文引用（著者-出版年）
 
 - 1 人：`Law（2015）`
-- 2 人：`Lee和Lee（2011）`；西文 `Panwalkar和Iskander（1977）`
+- 2 人：`Sang-Jin Lee 与 Tae-Eog Lee（2011）`；西文 `Panwalkar和Iskander（1977）`
 - 3 人及以上：`Klemmt等（2011）`；西文 `Chiu等（2023）`
 - 括号**全角**（），置于句末标点之前
 
