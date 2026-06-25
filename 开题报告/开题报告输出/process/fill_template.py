@@ -5,8 +5,10 @@
 以 TEMPLATE 中已填写内容为准，本脚本**只**写入正文单元格 R11/R13/R15。
 修改基础信息请直接编辑模板 doc，勿在本脚本中硬编码覆盖。
 
-**注意**：`02_开题报告_提交版.doc` 手调版式后以 02 为提交真源；bulk 改字见 WRITING_RULES.md / METADATA_POLICY.md。
+**注意**：`02_开题报告_提交版.doc` 手调版式后以 02 为提交真源。
+默认**就地更新**已有 02（保留表头与你手调的版式）；仅首次或 `--from-template` 时从模板复制。
 """
+import argparse
 import os
 import shutil
 import stat
@@ -162,12 +164,21 @@ def prepare_doc_for_editing(doc):
 
 
 def apply_content_cell(cell, content):
+    """Apply body text + locked paragraph format (matches WPS 宋体小四 / TNR / 固定24磅)."""
     cell.Range.Text = content
-    cell.Range.Font.Name = "Times New Roman"
-    cell.Range.Font.NameFarEast = "宋体"
-    cell.Range.Font.Size = 12
-    cell.Range.ParagraphFormat.LineSpacingRule = 1
-    cell.Range.ParagraphFormat.LineSpacing = 24
+    rng = cell.Range
+    rng.Font.Name = "Times New Roman"
+    rng.Font.NameFarEast = "宋体"
+    rng.Font.Size = 12
+    pf = rng.ParagraphFormat
+    # wdLineSpaceExactly = 4
+    pf.LineSpacingRule = 4
+    pf.LineSpacing = 24
+    pf.SpaceBefore = 0
+    pf.SpaceAfter = 0
+    pf.FirstLineIndent = 24  # 小四 × 2 字符
+    # wdAlignParagraphJustify = 3
+    pf.Alignment = 3
 
 
 def _cell_text(table, row, col):
@@ -237,17 +248,30 @@ def close_word_app(word):
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Fill thesis proposal body cells R11/R13/R15.")
+    parser.add_argument(
+        "--from-template",
+        action="store_true",
+        help="Delete 02 and copy fresh from template (destroys hand-tuned formatting).",
+    )
+    args = parser.parse_args()
+
     ensure_documents_closed(auto_close=True)
     section1 = build_section1()
-    if OUTPUT.exists():
-        try:
-            OUTPUT.unlink()
-        except OSError as exc:
-            raise RuntimeError(
-                f"Cannot replace {OUTPUT.name}: close it in WPS/Word first."
-            ) from exc
 
-    shutil.copy2(TEMPLATE, OUTPUT)
+    if args.from_template or not OUTPUT.exists():
+        if OUTPUT.exists():
+            try:
+                OUTPUT.unlink()
+            except OSError as exc:
+                raise RuntimeError(
+                    f"Cannot replace {OUTPUT.name}: close it in WPS/Word first."
+                ) from exc
+        shutil.copy2(TEMPLATE, OUTPUT)
+        print("Created 02 from template (table headers from template doc).")
+    else:
+        print("Updating 02 in place (keeping existing table headers and cell layout).")
+
     ensure_writable(OUTPUT)
 
     word = win32com.client.DispatchEx("Word.Application")
@@ -289,8 +313,9 @@ def main():
     print(f"References: {ref_count}")
     print(f"Approx chars (sections): {char_count}")
     print(
-        "Note: re-run overwrites R11/R13/R15 text; manual formatting in 02 is lost. "
-        "Edit 02 directly for final submission polish."
+        "Note: bulk text write resets R11/R13/R15 paragraph marks to script defaults "
+        "(宋体小四/TNR/固定24磅/首行缩进2字符/无段前段后/无标题间空行). "
+        "After hand-tuning 02, avoid --from-template; edit 02 directly for polish."
     )
 
 

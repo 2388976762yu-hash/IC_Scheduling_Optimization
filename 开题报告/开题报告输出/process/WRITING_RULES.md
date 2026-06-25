@@ -93,7 +93,16 @@
 
 ---
 
-## 7. 专项文件索引（只延伸，不另立策略）
+## 7. 段落排版（与 1.1 手调版一致）
+
+- 见 [`FORMAT_SPEC.md`](FORMAT_SPEC.md) §Word 单元格排版。
+- **`section_content.py` 禁止在标题之间、标题与正文之间插入空行**（无 `\n\n`）；由 `_compact_spacing()` 保证。
+- **手调后的 `02_开题报告_提交版.doc` 为提交真源**；AI **不得**擅自运行 `fill_template.py --from-template`。
+- 仅在你明确要求 bulk 改字时，才运行 `fill_template.py`（默认就地更新）；跑脚本前须 `ensure_doc_closed.py`。
+
+---
+
+## 8. 专项文件索引（只延伸，不另立策略）
 
 | 文件 | 职责 |
 |------|------|
