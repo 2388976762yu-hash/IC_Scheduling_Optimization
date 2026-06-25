@@ -27,7 +27,7 @@
 | **脱敏** | `ANONYMIZATION.md` | 正文用语 | 配合 CLAIMS 映射 |
 | **事实数字** | `CLAIMS.md` | 写入正文的表述 | 内部 EXP/DECISIONS 仅作内部真源列 |
 | **术语** | `TERMINOLOGY.md` | 正文专名 | 换型Setup/弹夹批次Magazine 等 |
-| **审计** | `audit_proposal.py` | 提交前检查 | spacing + framing + terminology |
+| **审计** | `AUDIT_DIMENSIONS.md` + `audit_proposal.py` | 提交前 D1–D7 门禁 | spacing/framing/terminology/academic/脱敏/一致/引用 |
 | **章节结构** | `OUTLINE.md` | 大纲与篇幅 | 非逐字正文 |
 | **提交文件** | `02_开题报告_提交版.doc` | 学院提交 | 手调版式后以 02 为准；bulk 改字走脚本 |
 
@@ -85,7 +85,7 @@
 
 ### 4.3 术语
 
-专业名词对照见 [`TERMINOLOGY.md`](TERMINOLOGY.md)。提交前运行 `python audit_proposal.py`（含 spacing / framing / terminology 三项审计）。
+专业名词对照见 [`TERMINOLOGY.md`](TERMINOLOGY.md)。提交前运行 `python audit_proposal.py`（**D1–D7 全维度**，见 [`AUDIT_DIMENSIONS.md`](AUDIT_DIMENSIONS.md)）。
 
 **换型Setup ≠ 设置 ≠ 换型总称**；Magazine = **弹夹批次**（非「杂志」）；DA/WB 推荐句见 TERMINOLOGY。
 

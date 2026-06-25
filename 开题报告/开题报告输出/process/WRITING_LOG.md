@@ -24,7 +24,7 @@
 | **2026-06-24** | 整合写作规则真源：WRITING_RULES 策略 / FORMAT 排版 / METADATA 表头；CLAIMS 对齐中文实验名 | WRITING_RULES, FORMAT_SPEC, METADATA, CLAIMS, 00_INDEX |
 | **2026-06-24** | 锁定段落排版：无标题间空行；fill 默认就地更新；禁止 --from-template 覆盖手调 02 | section_content, fill_template, FORMAT_SPEC, WRITING_RULES |
 | **2026-06-24** | 空行审计 audit_spacing.py；fix 参考文献拼接空行；Word R11/R13/R15 重填 | audit_spacing.py, fill_template.py, 02 doc |
-| **2026-06-24** | 数据改企业脱敏 Simio 导入原字段；Order 批次链；§3 恢复标定实验；去导师句式；写回 02 | section_content, TERMINOLOGY, CLAIMS, WRITING_RULES, 02 doc |
+| **2026-06-24** | 建立 D1–D7 多维度审计（AUDIT_DIMENSIONS + audit_*.py）；批次链与数据用语统一 | AUDIT_DIMENSIONS, audit_*.py, section_content, WRITING_RULES |
 
 ## 2026-06-24 修订说明
 

@@ -37,7 +37,8 @@
 | [process/fill_template.py](process/fill_template.py) | 填表脚本 |
 | [process/ensure_doc_closed.py](process/ensure_doc_closed.py) | 写 doc 前检查 |
 | [process/audit_spacing.py](process/audit_spacing.py) | **空行审计**（`--word` 检查 02） |
-| [process/audit_proposal.py](process/audit_proposal.py) | **综合审计**（空行+时态+术语） |
+| [process/audit_proposal.py](process/audit_proposal.py) | **一键审计 D1–D7**（`--word` 含 Word 空行） |
+| [process/AUDIT_DIMENSIONS.md](process/AUDIT_DIMENSIONS.md) | 多维度审计说明 |
 | [process/TERMINOLOGY.md](process/TERMINOLOGY.md) | **术语精校真源** |
 | [process/OUTLINE.md](process/OUTLINE.md) | 章节大纲 |
 | [process/BIBLIOGRAPHY.yaml](process/BIBLIOGRAPHY.yaml) | 文献元数据 |
