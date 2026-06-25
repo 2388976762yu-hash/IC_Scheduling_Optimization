@@ -6,11 +6,8 @@
 | **最后确认** | 2026-06-24 |
 | **中文题目** | **多目标优化的半导体后端制造生产排程研究** |
 | **英文题目** | Multi-Objective Optimization of Production Scheduling in Semiconductor Backend Manufacturing |
-| **培养单位** | 南开大学商学院 |
-| **专业** | 管理科学与工程 |
-| **研究方向** | 系统建模与仿真 |
-| **论文来源** | 导师科研项目 |
-| **工作周期** | 2026 年 6 月 — 2027 年 5 月 |
+
+个人信息（姓名、学号、导师、课题来源、报告日期等）**不在此文件维护**，见 [`2120253828-喻炫琪-研究生开题报告.doc`](../../2120253828-喻炫琪-研究生开题报告.doc) 与 [`METADATA_POLICY.md`](METADATA_POLICY.md)。
 
 ## 锁定理由
 
@@ -28,4 +25,4 @@
 
 - 正文真源：`process/section_content.py`
 - 填表脚本：`process/fill_template.py`
-- 提交版：`02_开题报告_提交版.doc` / `.docx`
+- 提交版：`02_开题报告_提交版.doc`

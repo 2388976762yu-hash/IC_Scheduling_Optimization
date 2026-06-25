@@ -9,12 +9,11 @@
 
 | 文件 | 用途 | 真源角色 |
 |------|------|----------|
-| **`02_开题报告_提交版.doc`** | **学院模板填表版（主提交）** | 自原版 template 复制填表 |
-| `02_开题报告_提交版.docx` | Word 2007+ 格式副本 | 由脚本导出 |
+| **`02_开题报告_提交版.doc`** | **学院模板填表版（唯一提交文件）** | 自模板复制，脚本只写 R11/R13/R15 |
 | [01_开题报告正文.md](01_开题报告正文.md) | 结构说明与版本对照 | 指向表格内容 |
 | [process/FORMAT_SPEC.md](process/FORMAT_SPEC.md) | 标点、引用、GB/T 7714 规范 | 格式真源 |
 | [process/section_content.py](process/section_content.py) | SECTION1/2/3 正文 prose | **内容真源** |
-| [process/fill_template.py](process/fill_template.py) | 填表脚本 + 参考文献生成 | 生成 .doc/.docx |
+| [process/fill_template.py](process/fill_template.py) | 填表脚本 + 参考文献生成 | 生成 `.doc` |
 | [process/OUTLINE.md](process/OUTLINE.md) | 章节大纲与页数预算 | 结构真源 |
 | [process/BIBLIOGRAPHY.yaml](process/BIBLIOGRAPHY.yaml) | 文献元数据 | **参考文献唯一真源**（32 篇） |
 | [process/REFERENCE_VERIFICATION.md](process/REFERENCE_VERIFICATION.md) | 逐条 Scholar/DOI 核实 | 核实记录 |
@@ -22,7 +21,8 @@
 | [process/ANONYMIZATION.md](process/ANONYMIZATION.md) | 脱敏规则与扫描记录 | 合规真源 |
 | [process/WRITING_LOG.md](process/WRITING_LOG.md) | 撰写/修改日志 | 过程记录 |
 | [process/LITERATURE_REVIEW_NOTES.md](process/LITERATURE_REVIEW_NOTES.md) | 综述分条笔记 | 写作素材 |
-| [process/TITLE_LOCK.md](process/TITLE_LOCK.md) | 题目锁定记录 | 决策记录 |
+| [process/METADATA_POLICY.md](process/METADATA_POLICY.md) | **基础信息维护规则**（模板 doc 为唯一真源） |
+| [process/TITLE_LOCK.md](process/TITLE_LOCK.md) | 题目锁定与脱敏禁止项 |
 
 ---
 
@@ -77,3 +77,5 @@
 cd 开题报告/开题报告输出/process
 python fill_template.py
 ```
+
+**基础信息**（姓名、题目、课题来源、导师、评审组等）请在 [`2120253828-喻炫琪-研究生开题报告.doc`](../2120253828-喻炫琪-研究生开题报告.doc) 中维护；脚本**只**更新 R11/R13/R15 正文。详见 [`process/METADATA_POLICY.md`](process/METADATA_POLICY.md)。

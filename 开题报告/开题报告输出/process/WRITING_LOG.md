@@ -15,6 +15,8 @@
 | **2026-06-24** | fill_template 从 YAML 自动生成 GB/T7714 列表；导出 docx | fill_template.py |
 | **2026-06-24** | 新建 REFERENCE_VERIFICATION.md | process/REFERENCE_VERIFICATION.md |
 | **2026-06-24** | 重新生成提交版 doc/docx | 02_开题报告_提交版.doc/.docx |
+| **2026-06-24** | fill_template 改为仅写 R11/R13/R15；基础信息以模板 doc 为准 | fill_template.py, FORMAT_SPEC.md |
+| **2026-06-24** | 新增 METADATA_POLICY；辅助 md 不再复制个人信息 | METADATA_POLICY.md, 01_, OUTLINE, TITLE_LOCK |
 
 ## 2026-06-24 修订说明
 
