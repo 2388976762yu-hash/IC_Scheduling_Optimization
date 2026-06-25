@@ -17,6 +17,7 @@
 | **题目** | [`process/TITLE_LOCK.md`](process/TITLE_LOCK.md) | — |
 | **脱敏** | [`process/ANONYMIZATION.md`](process/ANONYMIZATION.md) | — |
 | **事实数字** | [`process/CLAIMS.md`](process/CLAIMS.md) | 内部 EXP 仅作内部真源列 |
+| **术语** | [`process/TERMINOLOGY.md`](process/TERMINOLOGY.md) | — |
 | **学院提交** | [`02_开题报告_提交版.doc`](02_开题报告_提交版.doc) | 手调版式后以 02 为准 |
 
 规则变更 → [`process/WRITING_LOG.md`](process/WRITING_LOG.md)。
@@ -36,11 +37,13 @@
 | [process/fill_template.py](process/fill_template.py) | 填表脚本 |
 | [process/ensure_doc_closed.py](process/ensure_doc_closed.py) | 写 doc 前检查 |
 | [process/audit_spacing.py](process/audit_spacing.py) | **空行审计**（`--word` 检查 02） |
+| [process/audit_proposal.py](process/audit_proposal.py) | **综合审计**（空行+时态+术语） |
+| [process/TERMINOLOGY.md](process/TERMINOLOGY.md) | **术语精校真源** |
 | [process/OUTLINE.md](process/OUTLINE.md) | 章节大纲 |
 | [process/BIBLIOGRAPHY.yaml](process/BIBLIOGRAPHY.yaml) | 文献元数据 |
 | [process/CLAIMS.md](process/CLAIMS.md) | 事实断言登记 |
 | [process/ANONYMIZATION.md](process/ANONYMIZATION.md) | 脱敏规范 |
-| [process/WRITING_LOG.md](process/WRITING_LOG.md) | 修改日志 |
+| [`process/WRITING_LOG.md`](process/WRITING_LOG.md) | 修改日志 |
 | [process/TITLE_LOCK.md](process/TITLE_LOCK.md) | 题目锁定 |
 
 ---

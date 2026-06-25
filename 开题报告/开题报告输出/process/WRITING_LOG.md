@@ -24,10 +24,11 @@
 | **2026-06-24** | 整合写作规则真源：WRITING_RULES 策略 / FORMAT 排版 / METADATA 表头；CLAIMS 对齐中文实验名 | WRITING_RULES, FORMAT_SPEC, METADATA, CLAIMS, 00_INDEX |
 | **2026-06-24** | 锁定段落排版：无标题间空行；fill 默认就地更新；禁止 --from-template 覆盖手调 02 | section_content, fill_template, FORMAT_SPEC, WRITING_RULES |
 | **2026-06-24** | 空行审计 audit_spacing.py；fix 参考文献拼接空行；Word R11/R13/R15 重填 | audit_spacing.py, fill_template.py, 02 doc |
+| **2026-06-24** | 术语全量精校：弹夹批次Magazine、TERMINOLOGY 扩展、audit_terminology/proposal | section_content, TERMINOLOGY, audit_*.py, CLAIMS, WRITING_RULES |
 
 ## 2026-06-24 修订说明
 
 - 第一节新增 1.1—1.3 产业/业务/数据分节，扩展四线文献综述与 3.6 课题定位
 - 第二节补充研究方法（DES、Scenario Generator、EDD、敏感性）、实验方案与可行性
-- 第三节对齐 Model3.0 与初步仿真数字（正文不用 EXP 编号）
+- 第三节写模型框架与工具链积累（不写实验数值结论）
 - 参考文献 28→32；文件夹 5 PDF 映射为 3 篇唯一文献
