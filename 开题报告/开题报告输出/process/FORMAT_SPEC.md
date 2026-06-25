@@ -41,6 +41,8 @@
 | **空行** | **禁止**：`1.` 与 `1.1` 之间、标题与首段之间、段与段之间均**不要空行** |
 
 - 正文源 `section_content.py` 经 `_compact_spacing()` 去掉空行后再写入。
+- 参考文献块同样**不得**插入空行（中文文献与外文文献之间亦不加空行）。
+- 写 doc 后运行 `python audit_spacing.py --word`，要求 **empty_paragraphs=0**。
 - **手调 02 后**：优先在 WPS 直接改；勿跑 `fill_template.py --from-template`（会从模板重建并清空版式）。
 - 仅 bulk 改字时：`python fill_template.py`（默认**就地更新** 02，保留表头）；脚本仍会用上表格式重设 R11/R13/R15 段落标记。
 

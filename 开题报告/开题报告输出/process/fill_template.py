@@ -22,7 +22,7 @@ try:
 except ImportError:
     yaml = None
 
-from section_content import SECTION1_BODY, SECTION2, SECTION3
+from section_content import SECTION1_BODY, SECTION2, SECTION3, _compact_spacing
 from ensure_doc_closed import ensure_documents_closed
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -126,8 +126,6 @@ def build_reference_block():
             lines.append(f"[{idx}] {format_gbt7714(ref)}")
             idx += 1
     if foreign:
-        if chinese:
-            lines.append("")
         lines.append("外文文献")
         for ref in foreign:
             lines.append(f"[{idx}] {format_gbt7714(ref)}")
@@ -136,7 +134,16 @@ def build_reference_block():
 
 
 def build_section1():
-    return SECTION1_BODY + "\n\n" + build_reference_block()
+    return _compact_spacing(SECTION1_BODY + "\n" + build_reference_block())
+
+
+def _delete_empty_paragraphs(rng):
+    """Remove empty paragraphs Word may retain after Range.Text assignment."""
+    for idx in range(rng.Paragraphs.Count, 0, -1):
+        para = rng.Paragraphs(idx)
+        t = para.Range.Text.replace("\r", "").replace("\x07", "").strip()
+        if not t:
+            para.Range.Delete()
 
 
 def ensure_writable(path: Path):
@@ -165,7 +172,9 @@ def prepare_doc_for_editing(doc):
 
 def apply_content_cell(cell, content):
     """Apply body text + locked paragraph format (matches WPS 宋体小四 / TNR / 固定24磅)."""
-    cell.Range.Text = content
+    text = _compact_spacing(content)
+    cell.Range.Text = text
+    _delete_empty_paragraphs(cell.Range)
     rng = cell.Range
     rng.Font.Name = "Times New Roman"
     rng.Font.NameFarEast = "宋体"
@@ -290,7 +299,7 @@ def main():
             15: SECTION3,
         }
         for row in CONTENT_ROWS:
-            apply_content_cell(t2.Cell(row, 1), content_by_row[row])
+            apply_content_cell(t2.Cell(row, 1), _compact_spacing(content_by_row[row]))
 
         verify_metadata_unchanged(word, doc)
         prepare_doc_for_editing(doc)

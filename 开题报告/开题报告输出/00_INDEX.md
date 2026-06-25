@@ -35,6 +35,7 @@
 | [process/section_content.py](process/section_content.py) | 正文内容真源 |
 | [process/fill_template.py](process/fill_template.py) | 填表脚本 |
 | [process/ensure_doc_closed.py](process/ensure_doc_closed.py) | 写 doc 前检查 |
+| [process/audit_spacing.py](process/audit_spacing.py) | **空行审计**（`--word` 检查 02） |
 | [process/OUTLINE.md](process/OUTLINE.md) | 章节大纲 |
 | [process/BIBLIOGRAPHY.yaml](process/BIBLIOGRAPHY.yaml) | 文献元数据 |
 | [process/CLAIMS.md](process/CLAIMS.md) | 事实断言登记 |
