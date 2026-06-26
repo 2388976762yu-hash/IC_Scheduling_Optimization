@@ -6,9 +6,11 @@ import argparse
 import sys
 from pathlib import Path
 
+from doc_paths import KAITI_DOC, WORKSPACE
+
 PROCESS = Path(__file__).resolve().parent
-ROOT = PROCESS.parent
-OUTPUT = ROOT / "02_开题报告_提交版.doc"
+ROOT = WORKSPACE
+OUTPUT = KAITI_DOC
 
 sys.path.insert(0, str(PROCESS))
 

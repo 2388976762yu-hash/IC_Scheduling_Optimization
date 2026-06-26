@@ -23,12 +23,14 @@ except ImportError:
     yaml = None
 
 from section_content import SECTION1_BODY, SECTION2, SECTION3, _compact_spacing
+from doc_paths import KAITI_BACKUP_DOC, KAITI_DOC, WORKSPACE
 from ensure_doc_closed import ensure_documents_closed
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = WORKSPACE
 PROCESS = Path(__file__).resolve().parent
-TEMPLATE = ROOT.parent / "2120253828-喻炫琪-研究生开题报告.doc"
-OUTPUT = ROOT / "02_开题报告_提交版.doc"
+TEMPLATE = KAITI_DOC
+OUTPUT = KAITI_DOC
+OUTPUT_BACKUP = KAITI_BACKUP_DOC
 BIBLIOGRAPHY = PROCESS / "BIBLIOGRAPHY.yaml"
 
 # Table 2 正文内容行（其余行由模板保留，见 METADATA_POLICY.md）
@@ -268,18 +270,18 @@ def main():
     ensure_documents_closed(auto_close=True)
     section1 = build_section1()
 
-    if args.from_template or not OUTPUT.exists():
-        if OUTPUT.exists():
-            try:
-                OUTPUT.unlink()
-            except OSError as exc:
-                raise RuntimeError(
-                    f"Cannot replace {OUTPUT.name}: close it in WPS/Word first."
-                ) from exc
-        shutil.copy2(TEMPLATE, OUTPUT)
-        print("Created 02 from template (table headers from template doc).")
+    if args.from_template:
+        if not OUTPUT_BACKUP.exists():
+            raise RuntimeError(
+                f"--from-template 需要工作区备份 {OUTPUT_BACKUP.name}；"
+                "否则请直接手改开题报告 doc。"
+            )
+        shutil.copy2(OUTPUT_BACKUP, OUTPUT)
+        print(f"Restored {OUTPUT.name} from {OUTPUT_BACKUP.name}.")
+    elif not OUTPUT.exists():
+        raise RuntimeError(f"Missing submission doc: {OUTPUT}")
     else:
-        print("Updating 02 in place (keeping existing table headers and cell layout).")
+        print(f"Updating {OUTPUT.name} in place (keeping table headers and layout).")
 
     ensure_writable(OUTPUT)
 
@@ -305,6 +307,11 @@ def main():
         prepare_doc_for_editing(doc)
         doc.Save()
         saved = True
+        if OUTPUT_BACKUP.exists() or OUTPUT == TEMPLATE:
+            try:
+                shutil.copy2(OUTPUT, OUTPUT_BACKUP)
+            except OSError:
+                pass
     finally:
         if doc is not None:
             try:

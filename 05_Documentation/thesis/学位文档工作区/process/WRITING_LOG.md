@@ -25,7 +25,7 @@
 | **2026-06-24** | 锁定段落排版：无标题间空行；fill 默认就地更新；禁止 --from-template 覆盖手调 02 | section_content, fill_template, FORMAT_SPEC, WRITING_RULES |
 | **2026-06-24** | 空行审计 audit_spacing.py；fix 参考文献拼接空行；Word R11/R13/R15 重填 | audit_spacing.py, fill_template.py, 02 doc |
 | **2026-06-24** | 建立 D1–D7 多维度审计（AUDIT_DIMENSIONS + audit_*.py）；批次链与数据用语统一 | AUDIT_DIMENSIONS, audit_*.py, section_content, WRITING_RULES |
-| **2026-06-24** | D8 文档真源审计；THESIS_NOTES/LITERATURE/00_INDEX 与正文对齐；移除 template_cells_dump | audit_doc_truth.py, THESIS_NOTES, .gitignore |
+| **2026-06-25** | fill_midterm 改为默认就地增量填写，禁止覆盖本地已有单元格 | fill_midterm, METADATA_POLICY |
 
 ## 2026-06-24 修订说明
 

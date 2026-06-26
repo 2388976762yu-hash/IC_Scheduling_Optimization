@@ -14,13 +14,15 @@ import sys
 import time
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-PROCESS = Path(__file__).resolve().parent
-TEMPLATE = ROOT.parent / "2120253828-喻炫琪-研究生开题报告.doc"
-OUTPUT = ROOT / "02_开题报告_提交版.doc"
-
-MANAGED_DOCS = (TEMPLATE, OUTPUT)
-DOC_TITLE_KEYWORDS = ("开题报告", "02_开题报告_提交版")
+from doc_paths import (
+    KAITI_BACKUP_DOC,
+    KAITI_DOC,
+    MIDTERM_FORM_DOC,
+    MIDTERM_REPORT_DOC,
+    MANAGED_DOCS,
+    DOC_TITLE_KEYWORDS,
+    WORKSPACE,
+)
 
 
 def probe_file_locked(path: Path) -> bool:
@@ -56,7 +58,7 @@ def wps_thesis_window_pids() -> list[int]:
     """Return PIDs of WPS instances whose main window title mentions 开题报告."""
     ps = (
         "Get-Process wps -ErrorAction SilentlyContinue | "
-        "Where-Object { $_.MainWindowTitle -match '开题报告' } | "
+        "Where-Object { $_.MainWindowTitle -match '开题报告|中期报告|中期考核' } | "
         "ForEach-Object { $_.Id }"
     )
     result = subprocess.run(
@@ -153,7 +155,7 @@ def main() -> int:
     except RuntimeError as exc:
         print(exc, file=sys.stderr)
         return 1
-    print("OK: 模板与提交版均未占用，可安全运行 fill_template.py。")
+    print("OK: 学位文档均未占用，可安全运行 fill_template.py / fill_midterm.py。")
     return 0
 
 

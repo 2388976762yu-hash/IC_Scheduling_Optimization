@@ -1,0 +1,34 @@
+=== 2120253828-喻炫琪-研究生中期考核表.doc ===
+Tables: 3
+Paragraphs: 162
+--- Table 1: 10 rows x 2 cols ---
+R1: 报告题目： || [empty]
+R2: 姓    名： || [empty]
+R3: 学    号： || [empty]
+R4: 培养单位： || [empty]
+R5: 专业名称： || [empty]
+R6: 学位类别： || [empty]
+R7: 校内教师： || [empty]
+R8: 校外导师： || [empty]
+R9: 研究方向： || [empty]
+R10: 报告日期： || [empty]
+--- Table 2: 7 rows x 2 cols ---
+R1: 学位论文/实践成果题目（中英文） || [empty]
+R2: 关键词（中英文） || [empty]
+R3: 课题性质 || ( 基础研究    ( 应用研究    ( 综合研究    ( 其他
+R4: 与导师研究课题的关系 || ( 是导师研究课题的一部分      ( 与导师研究课题无关
+R5: 一、中期报告摘要（300字左右） || [MERGED?]
+R6: 二、思想品德（主要考核研究生的思想政治、道德品行、学习态度、组织纪律等方面）（请填写具体评语）综上，该生思想政治品德中期考核  □合格   □不合格。党团负责人（签字）：                           ... || [MERGED?]
+R7: 三、课程学习（主要考核研究生完成培养计划中课程学习情况）截止当前，该生是否有必修课程未通过。       □ 是          □ 否       研究生教务（签字）：                            ... || [MERGED?]
+--- Table 3: 11 rows x 6 cols ---
+R1: 四、考核小组专家信息 || [MERGED?] || [MERGED?] || [MERGED?] || [MERGED?] || [MERGED?]
+R2: [empty] || 成员 || 姓名 || 工作单位 || 职称 || 签名
+R3: 1 || 组长 || [empty] || [empty] || [empty] || [empty]
+R4: 2 || [empty] || [empty] || [empty] || [empty] || [empty]
+R5: 3 || [empty] || [empty] || [empty] || [empty] || [empty]
+R6: 4 || [empty] || [empty] || [empty] || [empty] || [empty]
+R7: 5 || [empty] || [empty] || [empty] || [empty] || [empty]
+R8: 五、考核小组意见（请关于毕业设计/学位论文中期进展的具体评价意见） || [MERGED?] || [MERGED?] || [MERGED?] || [MERGED?] || [MERGED?]
+R9: 考核成绩（总分100分）：    分考核结果：□ 优秀（90-100分）   □ 合格（60-89分）   □ 不合格（60分以下）组长（签名）：                 年    月    日 || [MERGED?] || [MERGED?] || [MERGED?] || [MERGED?] || [MERGED?]
+R10: 六、培养单位意见 || [MERGED?] || [MERGED?] || [MERGED?] || [MERGED?] || [MERGED?]
+R11: 负责人（签字）：（单位盖章）：       年    月    日 || [MERGED?] || [MERGED?] || [MERGED?] || [MERGED?] || [MERGED?]

@@ -8,7 +8,7 @@
 ## 运行方式
 
 ```powershell
-cd 开题报告\开题报告输出\process
+cd 05_Documentation\thesis\学位文档工作区\process
 python ensure_doc_closed.py
 python audit_proposal.py              # 全部维度
 python audit_proposal.py --word     # 含 Word R11/R13/R15 空行

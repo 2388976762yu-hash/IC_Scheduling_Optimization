@@ -6,11 +6,13 @@ import re
 import sys
 from pathlib import Path
 
+from doc_paths import REPO_ROOT, WORKSPACE
+
 ROOT = Path(__file__).resolve().parent
-OUTPUT = ROOT.parent
+OUTPUT = WORKSPACE
 DOCS = OUTPUT / "00_INDEX.md"
 RULES = ROOT / "WRITING_RULES.md"
-THESIS = ROOT.parents[2] / "05_Documentation" / "thesis" / "THESIS_NOTES.md"
+THESIS = REPO_ROOT / "05_Documentation" / "thesis" / "THESIS_NOTES.md"
 BODY = ROOT / "section_content.py"
 ANON = ROOT / "ANONYMIZATION.md"
 
