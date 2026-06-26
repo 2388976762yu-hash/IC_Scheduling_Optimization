@@ -70,14 +70,19 @@ def _author_string(authors):
     return f"{a}, {b}, {c}, et al"
 
 
-def _author_title_sep(author_str: str) -> str:
+def _compact_western_author(author_str: str) -> str:
+    """Remove spaces after commas in western author lists."""
+    return author_str.replace(", ", ",")
+
+
+def _author_title_join(author_str: str, title: str) -> str:
     if author_str.endswith("."):
-        return f"{author_str} "
-    return f"{author_str}. "
+        return f"{author_str}{title}"
+    return f"{author_str}.{title}"
 
 
 def format_gbt7714(ref):
-    """Format one reference entry (GB/T 7714-2015 style)."""
+    """Format one reference entry (GB/T 7714-2015 compact style)."""
     authors = ref.get("authors", [])
     author_str = _author_string(authors)
     year = ref.get("year", "")
@@ -93,26 +98,24 @@ def format_gbt7714(ref):
         vol_issue = volume
         if issue:
             vol_issue = f"{volume}({issue})"
-        return f"{author_str}.{title}[J].{venue},{year},{vol_issue}:{pages}."
+        return f"{_author_title_join(author_str, title)}[J].{venue},{year},{vol_issue}:{pages}."
 
-    sep = _author_title_sep(author_str)
+    author_str = _compact_western_author(author_str)
 
     if ref_type == "M":
         edition = ref.get("edition", "")
-        ed_part = f"{edition} ed. " if edition else ""
+        ed_part = f"{edition} ed." if edition else ""
         place = ref.get("place", "")
         publisher = ref.get("publisher", "")
-        return (
-            f"{sep}{title}[M]. {ed_part}{place}: {publisher}, {year}."
-        )
+        mid = f"{ed_part} " if ed_part else ""
+        return f"{_author_title_join(author_str, title)}[M].{mid}{place}:{publisher},{year}."
 
     if ref_type == "C":
         venue = ref.get("venue", "")
         pages = ref.get("pages", "")
-        page_part = f": {pages}" if pages else ""
-        return f"{sep}{title}[C]//{venue}. {year}{page_part}."
+        page_part = f":{pages}" if pages else ""
+        return f"{_author_title_join(author_str, title)}[C]//{venue}.{year}{page_part}."
 
-    # Journal [J]
     venue = ref.get("venue", "")
     volume = ref.get("volume", "")
     issue = ref.get("issue", "")
@@ -120,7 +123,7 @@ def format_gbt7714(ref):
     vol_issue = volume
     if issue:
         vol_issue = f"{volume}({issue})"
-    return f"{sep}{title}[J]. {venue}, {year}, {vol_issue}: {pages}."
+    return f"{_author_title_join(author_str, title)}[J].{venue},{year},{vol_issue}:{pages}."
 
 
 def _first_author(ref):
@@ -182,7 +185,7 @@ def build_reference_block():
     if foreign:
         lines.append("外文文献")
         for ref in foreign:
-            lines.append(f"[{idx}] {format_gbt7714(ref)}")
+            lines.append(f"[{idx}]{format_gbt7714(ref)}")
             idx += 1
     return "\n".join(lines)
 
