@@ -43,7 +43,7 @@
 
 - **Pinedo (2016)**：Scheduling Theory，tardiness/max lateness 目标。
 - **赵子夜等 (2025)**：半导体封装测试 FFS，多目标含拖期惩罚，CIMS。
-- **Wu et al. (2023)**：半导体制造机器调度综述， Sustainability。
+- **Fang et al. (2023)**：半导体制造机器调度综述， Sustainability。
 - **Panwalkar et al. (1977)**：dispatching rules 综述（EDD、SPT 等）— 年份已更正
 
 **述评要点**：MakeSpan + 延期惩罚的加权标量化适合 Experiment Response；需明确 MakeSpan 统计口径（整线 vs 工序截面）。

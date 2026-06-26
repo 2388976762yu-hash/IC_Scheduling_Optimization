@@ -48,8 +48,9 @@
 
 | 工具 | 作用 |
 |------|------|
-| `开题报告/开题报告输出/process/section_content.py` | 正文真源（无空行） |
-| `fill_template.py` | 只写 R11/R13/R15；默认**就地更新** 02 |
+| `05_Documentation/thesis/学位文档工作区/process/section_content.py` | 开题正文真源 |
+| `fill_template.py` | 只写 R11/R13/R15 至 `开题报告/2120253828-…开题报告.doc` |
+| `midterm_section_content.py` + `fill_midterm.py` | 中期报告/考核表（只写文字） |
 | `ensure_doc_closed.py` | 写 doc 前检查 WPS/Word 是否占用 |
 | `audit_spacing.py --word` | 审计空段是否为 0 |
 | `audit_proposal.py --word` | 一键审计 D1–D8（含 Word 空行） |
@@ -60,9 +61,10 @@
 | 路径 | 作用 |
 |------|------|
 | `.cursor/rules/kaiti-proposal.mdc` | 打开 `开题报告/**` 时约束真源、禁空行、慎跑 fill |
+| `.cursor/rules/repo-root-filing.mdc` | 根目录 stray 文件：阅读后归档（见 `REPO_FILING.md`） |
 | `.cursor/skills/kaiti-proposal/SKILL.md` | 聊天 `/kaiti-proposal` 走开题流程 |
 
-写作真源：`开题报告/开题报告输出/process/WRITING_RULES.md`
+写作真源：`05_Documentation/thesis/学位文档工作区/process/WRITING_RULES.md`
 
 ---
 
@@ -87,6 +89,6 @@
 
 ## 5. 相关索引
 
-- 开题总索引：`开题报告/开题报告输出/00_INDEX.md`
+- 开题总索引：`05_Documentation/thesis/学位文档工作区/00_INDEX.md`
 - Git / Clash：`05_Documentation/process/GIT_AND_NETWORK.md`
-- 表头与脚本：`开题报告/开题报告输出/process/METADATA_POLICY.md`
+- 表头与脚本：`05_Documentation/thesis/学位文档工作区/process/METADATA_POLICY.md`

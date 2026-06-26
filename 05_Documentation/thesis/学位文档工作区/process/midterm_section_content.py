@@ -39,22 +39,22 @@ MIDTERM_ABSTRACT = _compact(
 
 MIDTERM_SECTION1 = _compact(
     """1.1 研究进展概况
-自开题以来，本研究按「数据基准化—离散事件仿真建模—Experiment 实验—批次因子与释放/派工规则扫描—负荷校准—论文凝练」的技术路线推进，研究内容与开题报告保持一致，围绕典型存储类半导体封装后端产线的 MakeSpan 与准交绩效开展仿真优化研究。
+自开题以来，本研究沿数据基准化→离散事件仿真建模→Experiment 实验→批次因子与释放派工规则扫描→负荷校准→论文凝练的技术路线推进，研究内容与开题报告保持一致，围绕典型存储类半导体封装后端产线的 MakeSpan 与准交绩效开展仿真优化研究。
 1.2 仿真模型与实验框架
-已建立涵盖 D/S→DA→WB→Mold→B/G→Taping 六工序的 Simio 模型，并与企业脱敏 Simio 导入数据绑定：Orders 表 41 条订单、Materials 表 16 种物料、MachineConfig 合计 459 台设备。加工时间按 CurrentQty/UPH 计算；DA/WB 每批转入与转出搬运各 3 分钟，Assigned_DA_Group 变化时触发 10 分钟换型 Setup。订单 Order 经 Separator 链形成 MLot→Magazine（弹夹批次）→SubLot 结构，并纳入 Worker 搬运逻辑。Experiment 已定义 MakeSpan、Penalty 与 Objective=0.7×MakeSpan+0.3×Penalty 三个 Response；MLotFactor、SubLotFactor 作为 Model Properties 接入 Scenario Generator。
+已建立涵盖 D/S→DA→WB→Mold→B/G→Taping 六工序的 Simio 模型，并与企业脱敏 Simio 导入数据绑定：Orders 表 41 条订单、Materials 表 16 种物料、MachineConfig 合计 459 台设备。加工时间按 CurrentQty/UPH 计算；DA/WB 每批转入与转出搬运各 3 分钟，Assigned_DA_Group 变化时触发 10 分钟换型 Setup。订单 Order 经 Separator 链依次形成制造批次 MLot、弹夹批次 Magazine 与子批次 SubLot，并纳入 Worker 搬运逻辑。Experiment 已定义 MakeSpan、Penalty 与 Objective=0.7×MakeSpan+0.3×Penalty 三个 Response；MLotFactor、SubLotFactor 作为 Model Properties 接入 Scenario Generator。
 1.3 阶段性仿真实验结果
-（1）基准情景（因子均为 1.0）：MakeSpan=78.40，Penalty=0，Objective=54.88，41 单均可完整流转，绩效计算链路验证通过。
-（2）26 情景 MLotFactor×SubLotFactor 全因子网格扫描：Objective 最优 50.61（MLotFactor=1.0，SubLotFactor=0.75）；部分因子组合 Penalty 高达 760，表明批次缩放与准交约束存在显著非线性耦合。
-（3）释放顺序对照实验（仅调整 Orders 表 DueDate 行序、不改 Source 释放逻辑）：Objective 最优 52.38，Penalty 最高 700，表明释放顺序须与 Source 层交期驱动逻辑协同，表序调整不能替代 EDD 释放。
+第一，因子均为 1.0 的基准情景：MakeSpan=78.40，Penalty=0，Objective=54.88，41 单均可完整流转，绩效计算链路验证通过。
+第二，26 情景 MLotFactor×SubLotFactor 全因子网格扫描：Objective 最优 50.61，对应 MLotFactor=1.0、SubLotFactor=0.75；部分因子组合 Penalty 高达 760，表明批次缩放与准交约束存在显著非线性耦合。
+第三，仅调整订单表释放顺序的对照实验：Objective 最优 52.38，Penalty 最高 700，表明释放顺序须与 Source 层交期驱动逻辑协同，表序调整不能替代 EDD 释放。
 此外，已完成半导体后端排程、批次拆分、DES 与仿真优化、多目标调度等方向的文献研读，开题报告已撰写完成并整理参考文献 32 篇。"""
 )
 
 MIDTERM_SECTION2 = _compact(
     """2.1 存在的主要问题
-（1）负荷水平偏低：原始场景各工序平均利用率约 13%，喂料不足导致瓶颈判断失真，需在负荷校准后再比较调度策略优劣。
-（2）MakeSpan 统计口径待统一：Experiment 当前暂用 Mold 工序截面 Mold_T_End，须并行记录 Sink 整线 LastDepartureTime 并在论文中确定主口径。
-（3）交期驱动释放与派工待完善：Source 层 EDD 释放及各设备队列 EDD 派工尚未完全实现，DueDate 升序释放与 FIFO 基线对比实验尚待完成。
-（4）批次参数口径待核对：Materials 表 StripsPerMag、QtyPerMag 等字段含义须与封装行业规范逐项对照，确保批次因子物理意义准确。
+第一，负荷水平偏低：原始场景各工序平均利用率距反映瓶颈的负荷水平差距较大，喂料不足导致瓶颈判断失真，需在负荷校准后再比较调度策略优劣。
+第二，MakeSpan 统计口径待统一：Experiment 当前暂用 Mold 工序截面 Mold_T_End，须并行记录 Sink 整线 LastDepartureTime 并在论文中确定主口径。
+第三，交期驱动释放与派工待完善：Source 层 EDD 释放及各设备队列 EDD 派工尚未完全实现，DueDate 升序释放与 FIFO 基线对比实验尚待完成。
+第四，批次参数口径待核对：Materials 表 StripsPerMag、QtyPerMag 等字段含义须与封装行业规范逐项对照，确保批次因子物理意义准确。
 2.2 下一步工作计划
 2026 年 6—8 月：完成 ReleaseDate/DueDate 基准化、MakeSpan 口径统一与负荷校准实验；2026 年 9—12 月：实现 Source 与队列 EDD，完成交期升序释放与 FIFO 对比及较优因子附近稳健性分析；2027 年 1—3 月：整理实验图表、扩展因子水平；2027 年 4—5 月：撰写并修改学位论文。
 2.3 论文选题说明
@@ -63,10 +63,10 @@ MIDTERM_SECTION2 = _compact(
 
 MIDTERM_SECTION3 = _compact(
     """3.1 已完成的工作成果
-（1）完成开题报告及学院表格提交版；
-（2）交付可运行的 Simio 六工序封装后端仿真模型（含 Order—MLot—Magazine—SubLot 批次链、Worker 搬运与 DA/WB 换型 Setup）；
-（3）形成基准情景、26 情景因子网格及释放顺序对照等实验记录与数据摘要；
-（4）整理 32 篇参考文献元数据及引用核实记录。
+第一，完成开题报告及学院表格提交版；
+第二，交付可运行的 Simio 六工序封装后端仿真模型，涵盖 Order—MLot—Magazine—SubLot 批次链、Worker 搬运与 DA/WB 换型 Setup；
+第三，形成基准情景、26 情景因子网格及释放顺序对照等实验记录与数据摘要；
+第四，整理 32 篇参考文献元数据及引用核实记录。
 3.2 发表论文与知识产权
 截至目前，尚无正式发表学术论文、授权专利或已录用会议论文。后续将在完成 EDD 与负荷校准等系统实验后，将主要结论凝练为硕士学位论文；视研究进展，再考虑管理科学与工程相关期刊投稿。"""
 )

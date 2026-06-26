@@ -37,6 +37,7 @@
 
 ```powershell
 cd 05_Documentation\thesis\学位文档工作区\process
+python read_submission_docs.py --kaiti    # 只读提取开题 R11/R13/R15（同步后端前必跑）
 python ensure_doc_closed.py
 
 # 开题（只写文字，会同步备份 02）

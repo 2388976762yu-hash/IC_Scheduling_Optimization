@@ -62,12 +62,17 @@ def _author_string(authors):
         return a.split(",")[0].strip()
     if len(authors) <= 3:
         if chinese:
-            return "，".join(authors)
+            return ",".join(authors)
         return ", ".join(authors)
     a, b, c = authors[0], authors[1], authors[2]
     if chinese:
-        return f"{a}，{b}，{c}，等"
+        return f"{a},{b},{c},等"
     return f"{a}, {b}, {c}, et al"
+
+
+def _compact_western_periods(text: str) -> str:
+    """Remove spaces immediately after '.' in western bibliography lines."""
+    return re.sub(r"\.\s+", ".", text)
 
 
 def _compact_western_author(author_str: str) -> str:
@@ -108,13 +113,17 @@ def format_gbt7714(ref):
         place = ref.get("place", "")
         publisher = ref.get("publisher", "")
         mid = f"{ed_part} " if ed_part else ""
-        return f"{_author_title_join(author_str, title)}[M].{mid}{place}:{publisher},{year}."
+        return _compact_western_periods(
+            f"{_author_title_join(author_str, title)}[M].{mid}{place}:{publisher},{year}."
+        )
 
     if ref_type == "C":
         venue = ref.get("venue", "")
         pages = ref.get("pages", "")
         page_part = f":{pages}" if pages else ""
-        return f"{_author_title_join(author_str, title)}[C]//{venue}.{year}{page_part}."
+        return _compact_western_periods(
+            f"{_author_title_join(author_str, title)}[C]//{venue}.{year}{page_part}."
+        )
 
     venue = ref.get("venue", "")
     volume = ref.get("volume", "")
@@ -123,7 +132,9 @@ def format_gbt7714(ref):
     vol_issue = volume
     if issue:
         vol_issue = f"{volume}({issue})"
-    return f"{_author_title_join(author_str, title)}[J].{venue},{year},{vol_issue}:{pages}."
+    return _compact_western_periods(
+        f"{_author_title_join(author_str, title)}[J].{venue},{year},{vol_issue}:{pages}."
+    )
 
 
 def _first_author(ref):
@@ -174,19 +185,16 @@ def load_references():
 
 
 def build_reference_block():
+    """Continuous [1]… list under section 4; no 中文文献/外文文献 sub-headings."""
     chinese, foreign = load_references()
     lines = []
     idx = 1
-    if chinese:
-        lines.append("中文文献")
-        for ref in chinese:
-            lines.append(f"[{idx}]{format_gbt7714(ref)}")
-            idx += 1
-    if foreign:
-        lines.append("外文文献")
-        for ref in foreign:
-            lines.append(f"[{idx}]{format_gbt7714(ref)}")
-            idx += 1
+    for ref in chinese:
+        lines.append(f"[{idx}]{format_gbt7714(ref)}")
+        idx += 1
+    for ref in foreign:
+        lines.append(f"[{idx}]{format_gbt7714(ref)}")
+        idx += 1
     return "\n".join(lines)
 
 

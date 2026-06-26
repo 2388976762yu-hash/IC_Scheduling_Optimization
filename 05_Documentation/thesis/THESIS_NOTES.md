@@ -9,16 +9,15 @@
 | 项 | 内容 |
 |----|------|
 | **题目（锁定）** | **多目标优化的半导体后端制造生产排程研究** |
-| **Word 提交版** | [02_开题报告_提交版.doc](../../开题报告/开题报告输出/02_开题报告_提交版.doc)（**学院表格填表版**） |
-| **docx 副本** | [02_开题报告_提交版.docx](../../开题报告/开题报告输出/02_开题报告_提交版.docx) |
-| **格式规范** | [process/FORMAT_SPEC.md](../../开题报告/开题报告输出/process/FORMAT_SPEC.md) |
-| 正文真源 | [process/section_content.py](../../开题报告/开题报告输出/process/section_content.py) |
-| 结构说明 | [01_开题报告正文.md](../../开题报告/开题报告输出/01_开题报告正文.md) |
-| **索引** | [开题报告/开题报告输出/00_INDEX.md](../../开题报告/开题报告输出/00_INDEX.md) |
-| **文献真源** | [process/BIBLIOGRAPHY.yaml](../../开题报告/开题报告输出/process/BIBLIOGRAPHY.yaml)（**32 篇**） |
-| **文献核实** | [process/REFERENCE_VERIFICATION.md](../../开题报告/开题报告输出/process/REFERENCE_VERIFICATION.md) |
-| **脱敏** | 正文不含企业/品牌名；见 [ANONYMIZATION.md](../../开题报告/开题报告输出/process/ANONYMIZATION.md) |
-| **重新生成** | `cd 开题报告/开题报告输出/process && python fill_template.py`；提交前 `python audit_proposal.py --word` |
+| **Word 提交版** | [2120253828-…开题报告.doc](../../开题报告/2120253828-喻炫琪-研究生开题报告.doc)（**学院表格填表版**） |
+| **中期报告** | [2120253828-…中期报告.doc](../../开题报告/2120253828-喻炫琪-研究生中期报告.doc) |
+| **中期考核表** | [2120253828-…中期考核表.doc](../../开题报告/2120253828-喻炫琪-研究生中期考核表.doc) |
+| **工作区索引** | [学位文档工作区/00_INDEX.md](学位文档工作区/00_INDEX.md) |
+| 正文真源 | [学位文档工作区/process/section_content.py](学位文档工作区/process/section_content.py) |
+| 中期正文真源 | [学位文档工作区/process/midterm_section_content.py](学位文档工作区/process/midterm_section_content.py) |
+| **索引** | [学位文档工作区/00_INDEX.md](学位文档工作区/00_INDEX.md) |
+| **文献真源** | [学位文档工作区/process/BIBLIOGRAPHY.yaml](学位文档工作区/process/BIBLIOGRAPHY.yaml)（**32 篇**） |
+| **重新生成** | `cd 05_Documentation/thesis/学位文档工作区/process` → `fill_template.py` / `fill_midterm.py` |
 
 ---
 
@@ -45,7 +44,7 @@
 - 半导体后端流程：DS → DA → WB → Mold → BG → Taping
 - 排程问题：交期、换型、批次、设备分配
 - 仿真 vs 纯数学模型：考虑 Worker、换型、拆分合并
-- 文献综述四线：见 [LITERATURE_REVIEW_NOTES.md](../../开题报告/开题报告输出/process/LITERATURE_REVIEW_NOTES.md)
+- 文献综述四线：见 [LITERATURE_REVIEW_NOTES.md](学位文档工作区/process/LITERATURE_REVIEW_NOTES.md)
 
 ---
 
@@ -85,7 +84,7 @@
 
 ## 参考文献
 
-- 开题报告已录入 32 篇：见 [BIBLIOGRAPHY.yaml](../../开题报告/开题报告输出/process/BIBLIOGRAPHY.yaml)
+- 开题报告已录入 32 篇：见 [BIBLIOGRAPHY.yaml](学位文档工作区/process/BIBLIOGRAPHY.yaml)
 - 正文引用格式：著者-出版年（如 Klemmt et al. (2011)）
 
 ---

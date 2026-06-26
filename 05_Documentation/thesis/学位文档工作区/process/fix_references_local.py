@@ -68,25 +68,60 @@ def replace_in_cell(cell, old: str, new: str, *, dry_run: bool) -> int:
 
 
 def replace_reference_block(cell, new_block: str, *, dry_run: bool) -> bool:
-    dup = cell.Range.Duplicate
+    """Replace everything from the corrupted ref list through cell end."""
+    full = cell.Range
+    end = full.End - 1
+
+    trunc_patterns = (
+        "从中文文献\r[1]",
+        "从中文文献[1]",
+    )
+    for trunc in trunc_patterns:
+        dup = full.Duplicate
+        find = dup.Find
+        find.ClearFormatting()
+        find.Text = trunc
+        find.Forward = True
+        find.Wrap = 0
+        if not find.Execute():
+            continue
+        start = dup.Start
+        replacement = (
+            "从中文文献角度综述了半导体制造调度问题，为国内研究提供了系统入口。\r\r"
+            f"4. 主要参考文献\r{new_block}\r"
+        )
+        if dry_run:
+            print(f"Would repair truncated body and rewrite refs ({end - start} chars)")
+            return True
+        replace_rng = cell.Range
+        replace_rng.SetRange(start, end)
+        replace_rng.Text = replacement
+        return True
+
+    dup = full.Duplicate
     find = dup.Find
     find.ClearFormatting()
-    find.Text = "中文文献"
+    find.Text = "[1]"
     find.Forward = True
     find.Wrap = 0
     if not find.Execute():
-        raise RuntimeError("R11 中未找到「中文文献」起始标记")
+        raise RuntimeError("R11 中未找到参考文献 [1]")
 
     start = dup.Start
-    end = cell.Range.End - 1
+    before = full.Duplicate
+    before.SetRange(full.Start, start)
+    if "主要参考文献" in before.Text:
+        replacement = new_block + "\r"
+    else:
+        replacement = "4. 主要参考文献\r" + new_block + "\r"
+
     if dry_run:
-        old_len = end - start
-        print(f"Would replace reference block from 中文文献 ({old_len} chars) → {len(new_block)} chars")
+        print(f"Would rewrite refs from [1] ({end - start} chars) → {len(new_block)} chars")
         return True
 
     replace_rng = cell.Range
     replace_rng.SetRange(start, end)
-    replace_rng.Text = new_block + "\r"
+    replace_rng.Text = replacement
     return True
 
 

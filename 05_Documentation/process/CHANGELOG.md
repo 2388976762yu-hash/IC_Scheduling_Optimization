@@ -6,6 +6,19 @@
 
 ## 2026-06-25
 
+### 恢复开题报告参考资料目录
+
+- 在 `开题报告/参考资料/` 恢复学院填写说明 docx、实施细则 pdf、空白 Word 模板（自 Git）
+- 明确规则：**输出文件**（根目录 3 doc）与**参考文件**（参考资料子文件夹）不得混移；见 `REPO_FILING.md`
+
+### 根目录分析报告归档 + 归档规则
+
+- 根目录 5 份 `.docx` 迁至：
+  - `experiments/analysis/legacy/`（V1/V8/V1V2 仿真分析报告 4 份）
+  - `status/archives/`（项目状态总结与论文方向报告）
+- 新增 `process/REPO_FILING.md`、各目录 `00_INDEX.md`
+- Cursor 规则：`.cursor/rules/repo-root-filing.mdc`（`alwaysApply`）
+
 ### Git push 走 Clash 文档化
 
 - 新增 `process/GIT_AND_NETWORK.md`：Clash 7890、git proxy、Agent 说明

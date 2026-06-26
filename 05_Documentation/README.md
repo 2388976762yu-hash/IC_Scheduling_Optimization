@@ -11,10 +11,12 @@
 | [`process/DECISIONS.md`](process/DECISIONS.md) | **决策记录**：为什么这样选 | 有重要决策时 |
 | [`process/GIT_AND_NETWORK.md`](process/GIT_AND_NETWORK.md) | **Git / Clash 代理**：push 走 7890 | 网络或 push 失败时 |
 | [`process/CURSOR_AND_DOC.md`](process/CURSOR_AND_DOC.md) | **Cursor / MCP / Word**：Marketplace 与 `.doc` 工作流 | 问「有没有 doc 插件」时 |
+| [`process/REPO_FILING.md`](process/REPO_FILING.md) | **根目录归档**：新文件放根目录时 AI/人工如何分类 | 根目录出现 stray 文件时 |
 | [`experiments/EXPERIMENT_LOG.md`](experiments/EXPERIMENT_LOG.md) | **实验总表**：所有 Experiment 索引 | 每次实验后 |
+| [`experiments/analysis/legacy/00_INDEX.md`](experiments/analysis/legacy/00_INDEX.md) | **早期 V1/V8 仿真分析报告**（Word 归档） | 查阅历史基线时 |
 | [`experiments/records/`](experiments/records/) | **单次实验详情** | 每次实验一篇 |
 | [`thesis/THESIS_NOTES.md`](thesis/THESIS_NOTES.md) | **论文素材**：可写入绪论/方法/实验的要点 | 随研究积累 |
-| [`../开题报告/开题报告输出/00_INDEX.md`](../开题报告/开题报告输出/00_INDEX.md) | **开题报告输出**（正文真源、文献、脱敏） | 开题阶段 |
+| [`../05_Documentation/thesis/学位文档工作区/00_INDEX.md`](../05_Documentation/thesis/学位文档工作区/00_INDEX.md) | **学位文档工作区**（开题/中期正文真源、脚本） | 开题·中期 |
 
 ## 与其他目录的关系
 
@@ -24,6 +26,7 @@
 | `项目辅助材料/AI_项目过程文档.md` | AI 跨会话上下文（与 status/CHANGELOG 同步摘要） |
 | `项目辅助材料/会议纪要/` | 会议原始记录；**决议**摘录到 DECISIONS.md |
 | `04_Output/*.csv` | 原始报告；**结论**写入 experiments/records/ |
+| 根目录临时 `.docx` / 分析报告 | **应归档**；见 [`process/REPO_FILING.md`](process/REPO_FILING.md) |
 
 ## 推荐工作流
 

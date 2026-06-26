@@ -27,7 +27,7 @@ SECTION1_BODY = _compact_spacing(r"""1. 论文选题的背景
 
 1.3 本研究数据来源与研究场景
 
-本研究数据来自典型存储类半导体封装企业提供的已脱敏 Simio 导入数据集，对应企业实际一周排产样本的原生字段，未经虚构扩充。Orders 工作表含 41 条订单，字段包括 OrderNumber、MaterialFK、OrderQty、ReleaseDate、DueTime 及 DA/WB 工序 Assigned_DA_Group、Assigned_WB_Group；Materials 工作表含 16 种物料，给出 DiesPerUnit、StripsPerMag、QtyPerMag、QtyPerSubLot 等批次拆分参数及各工序 UPH；MachineConfig 工作表给出六工序工序站 Server 台数，合计 459 台，即 D/S 31 台、DA 112 台、WB 284 台、Mold 7 台、B/G 17 台、Taping 8 台。加工时间按 CurrentQty/UPH 计算；DA/WB 每批转入与转出搬运各 3 分钟，Assigned_DA_Group 或 Material 变化时触发 10 分钟换型 Setup。
+本研究数据来自典型存储类半导体封装企业提供的已脱敏数据集，对应企业实际一周排产样本的原生字段。Orders 工作表含 41 条订单，字段包括 OrderNumber、MaterialFK、OrderQty、ReleaseDate、DueTime 及 DA/WB 工序 Assigned_DA_Group、Assigned_WB_Group；Materials 工作表含 16 种物料，给出 DiesPerUnit、StripsPerMag、QtyPerMag、QtyPerSubLot 等批次拆分参数及各工序 UPH；MachineConfig 工作表给出六工序工序站 Server 台数，合计 459 台，即 D/S 31 台、DA 112 台、WB 284 台、Mold 7 台、B/G 17 台、Taping 8 台。加工时间按 CurrentQty/UPH 计算；DA/WB 每批转入与转出搬运各 3 分钟，Assigned_DA_Group 或 Material 变化时触发 10 分钟换型 Setup。
 
 在模型与实验层面，拟采用 Simio 离散事件仿真 DES 构建六工序一体化模型：订单 Order 为计划释放单元，经 Separator 链拆分为制造批次 MLot、弹夹批次 Magazine 与子批次 SubLot，并纳入 Worker 搬运、换型 Setup 及订单源 Source 释放逻辑。Law（2015）与 Banks 等（2010）所阐述的 DES 建模、验证与实验设计流程，为本研究提供了方法规范。研究决策变量包括批次缩放因子 MLotFactor 与 SubLotFactor，二者拟定义为 Model Properties 并接入 Scenario Generator 情景生成器；订单释放与派工拟采用最早交期先出规则 EDD。拟按以下步骤开展仿真研究：第一，在因子均为 1.0 的基准情景下验证 Experiment 对 MakeSpan、Penalty 与 Objective 的计算链路；第二，在上述基准数据上对 MLotFactor 与 SubLotFactor 开展全因子网格扫描，识别加权 Objective 较优的因子区间；第三，在仅调整 Orders 表 DueDate 行序、不改 Source 释放逻辑的对照中，检验表序调整能否替代 Source 层 EDD；第四，实现 Source 层 EDD 释放并与 FIFO 等基线对比，评估 Penalty 与 Objective 的改善幅度。上述步骤为本研究拟完成的实验方案，定量结论以学位论文阶段的系统实验为准。
 
@@ -47,9 +47,9 @@ SECTION1_BODY = _compact_spacing(r"""1. 论文选题的背景
 
 在无需新增资本投入的前提下，通过仿真寻优识别批次因子与释放/派工策略的改进区间，可为封装后端产线计划人员提供可操作的排程参数建议。本研究预期通过批次因子网格扫描与EDD/FIFO对比，揭示MLotFactor、SubLotFactor与Objective、Penalty之间的可解释映射关系，识别盲目放大批次可能恶化准交绩效的风险区间，并为降低延期风险、缩短制造周期及负荷校准后改善DA/WB等关键工序利用率提供决策依据。
 
-对于企业生产计划部门而言，本研究输出的并非一次性最优解，而是一组可解释的参数—绩效映射关系：在给定脱敏订单结构与设备规模下，何种批次缩放区间更可能同时控制MakeSpan与Penalty；在何种负荷水平下瓶颈由喂料不足转向DA/WB约束；EDD释放相对于FIFO究竟改善多少Penalty。此类情景假设分析正是Chen-Ritzo等（2011）所强调的仿真决策支持价值。对于学院管理科学与工程训练而言，本研究贯穿数据治理、随机系统建模、实验设计与多目标决策，符合系统建模与仿真研究方向的人才培养目标。
+对于企业生产计划部门而言，本研究输出的并非固定最优排程方案，而是一组可解释的参数—绩效映射：在既定脱敏订单与设备配置下，何种批次缩放区间更可能兼顾MakeSpan与Penalty；负荷校准后瓶颈是否由上游喂料不足转向DA/WB约束；EDD释放较FIFO能否有效降低Penalty。此类多情景对比分析，正是Chen-Ritzo等（2011）所强调的仿真决策支持路径。就专业训练而言，本研究贯通数据基准化、离散事件仿真、实验设计与多目标权衡，与系统建模与仿真研究方向相衔接。
 
-此外，所构建的脱敏Simio模型与Experiment框架可复用于后续负荷敏感性分析、EDD派工对比及潜在OptQuest与元启发式算法扩展，为产学研协同提供可迁移的实验平台。Hoppe等（2025）与Luttmann和Xie（2026）等最新组合优化/强化学习研究虽提供了方法前沿，但与工业DES平台对接仍需可复现基准模型，本研究的积累可为此类对照研究提供基础场景。项目成果亦可以实验记录、对比图表形式支撑后续期刊论文或会议投稿，提升研究的延续性与学术产出潜力。
+此外，本研究所构建的脱敏Simio模型与Experiment框架可复用于后续负荷敏感性分析、EDD派工对比及潜在OptQuest与元启发式算法扩展，为产学研协同提供可迁移的实验平台。Hoppe等（2025）与Luttmann和Xie（2026）等最新组合优化/强化学习研究虽提供了方法前沿，但与工业DES平台对接仍需可复现基准模型，本研究的积累可为此类对照研究提供基础场景。项目成果亦可以实验记录、对比图表形式支撑后续期刊论文或会议投稿，提升研究的延续性与学术产出潜力。
 
 3. 国内外研究现状分析
 
@@ -99,7 +99,7 @@ MakeSpan统计口径方面，Experiment拟并行采用Mold工序截面时刻Mold
 
 从数据与实验条件看，41 条订单、16 种物料、459 台设备及 DA/WB 搬运与换型 Setup 参数均直接对应企业脱敏 Simio 导入数据与模型架构说明，场景设定可追溯、可复现。
 
-综上，本研究在理论层面衔接HFSP调度、批次拆分与多目标仿真优化文献；在实践层面面向典型存储类封装后端脱敏场景；在方法层面以Simio DES+Experiment为主干，吸收派工规则与仿真优化文献成果，形成具有可验证实验计划的管理科学与工程硕士研究方案。
+综上，本研究在理论层面衔接HFSP调度、批次拆分与多目标仿真优化文献；在实践层面面向典型存储类封装后端脱敏场景；在方法层面以Simio DES+Experiment为主干，吸收派工规则与仿真优化文献成果，形成具有可验证实验计划的研究方案。
 
 4. 主要参考文献""")
 
@@ -129,7 +129,8 @@ SECTION2 = _compact_spacing(r"""1. 研究目标、研究内容和拟解决的关
 
 研究分四阶段推进：第一阶段完成 Orders 表 ReleaseDate/DueDate 基准化与企业脱敏数据固化；第二阶段完善 Simio 六工序模型及 Experiment 绩效体系；第三阶段开展批次因子网格、EDD 策略及负荷校准实验；第四阶段汇总结果、撰写学位论文。
 
-技术路线如下：企业脱敏Simio导入数据准备→Simio DES建模，含六工序、批次、搬运与换型Setup→定义MakeSpan/Penalty/Objective→Scenario Generator因子扫描→EDD释放/派工优化→负荷敏感性实验→结论与论文定稿。
+技术路线如图2.1：行业脱敏数据准备→Simio DES建模，含六工序、批次、搬运与换型Setup→定义MakeSpan/Penalty/Objective→Scenario Generator因子扫描→EDD释放/派工优化→负荷敏感性实验→结论与论文定稿。
+图2.1 技术路线图
 
 2.2 研究方法
 
@@ -163,7 +164,7 @@ SECTION2 = _compact_spacing(r"""1. 研究目标、研究内容和拟解决的关
 
 5. 预期研究成果
 
-预期形成以下成果：完成硕士学位论文《多目标优化的半导体后端制造生产排程研究》1 篇；交付可运行的 Simio 封装后端仿真模型及与上述企业脱敏数据一致的实验数据集；通过批次因子网格扫描与 EDD/FIFO 对比实验，形成关于 MakeSpan—Penalty 权衡、瓶颈工序识别及排程参数建议的管理启示；整理可复用的 Experiment 配置与实验记录，为后续期刊论文或技术报告提供素材。具体数值结论与图表以学位论文定稿为准。""")
+预期形成以下成果：完成硕士学位论文《多目标优化的半导体后端制造生产排程研究》1 篇；交付可运行的 Simio 封装后端仿真模型及与上述企业脱敏数据一致的实验数据集；通过批次因子网格扫描与 EDD/FIFO 对比实验，形成关于 MakeSpan—Penalty 权衡、瓶颈工序识别及排程参数建议的管理启示；整理可复用的 Experiment 配置与实验记录，为后续期刊论文或技术报告提供素材。""")
 
 SECTION3 = _compact_spacing(r"""1. 与本项目有关的研究工作积累和已取得的研究工作成绩
 
@@ -183,7 +184,7 @@ Simio 软件及六工序模型源文件；企业脱敏 Simio 导入数据，含 
 
 2.2 尚缺条件与解决途径
 
-第一，设备利用率偏低。原始场景各工序平均利用率约 13%，距反映瓶颈的负荷水平差距较大。拟通过复制订单并压缩 ReleaseDate 窗口、或调整有效 DA/WB 台数等方式开展负荷敏感性实验，寻求 DA/WB 利用率进入 50% 至 90% 区间的标定场景。
+第一，设备利用率偏低。原始场景各工序平均利用率距反映瓶颈的负荷水平差距较大。拟通过复制订单并压缩 ReleaseDate 窗口、或调整有效 DA/WB 台数等方式开展负荷敏感性实验，寻求 DA/WB 利用率进入 50% 至 90% 区间的标定场景。
 
 第二，Magazine/批次口径。Materials 表中 StripsPerMag、QtyPerMag 等字段含义须与封装行业规范及模型表达式逐项对照，避免批次因子物理意义偏差。
 
@@ -191,4 +192,4 @@ Simio 软件及六工序模型源文件；企业脱敏 Simio 导入数据，含 
 
 第四，Source 层 EDD 尚未完全实现。拟修改订单源 Source 释放逻辑与各设备队列派工规则为 EDD，DueDate 升序，开展交期升序释放对照，并在较优因子附近情景对比 Penalty 改善幅度。
 
-第五，潜在 OptQuest/元启发式扩展。当前以 Scenario Generator 网格扫描为主；待基准协议稳定后，可探索 OptQuest 或借鉴 Lin 和 Chen（2015）、Chen 等（2013）的 GA/PSO+OCBA 思路，作为后续拓展而非开题阶段必达项。""")
+第五，潜在 OptQuest/元启发式扩展。当前以 Scenario Generator 网格扫描为主；待基准协议稳定后，可探索 OptQuest 或借鉴 Lin 和 Chen（2015）、Chen 等（2013）的 GA/PSO+OCBA 思路，作为后续拓展可选项。""")
