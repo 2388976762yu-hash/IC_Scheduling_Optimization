@@ -49,25 +49,25 @@ METADATA_CHECK_KEYS = (
 
 
 def _author_string(authors):
-    """GB/T 7714 list authors: ≤2 list all; ≥3 list first two + 等 / et al."""
+    """GB/T 7714 list authors: ≤3 list all; >3 list first three + 等 / et al."""
     if not authors:
         return ""
+    chinese = any("\u4e00" <= c <= "\u9fff" for c in authors[0])
     if len(authors) == 1:
         a = authors[0]
-        if any("\u4e00" <= c <= "\u9fff" for c in a):
+        if chinese:
             return a
         if ", " in a:
             return a
         return a.split(",")[0].strip()
-    if len(authors) == 2:
-        a, b = authors
-        if any("\u4e00" <= c <= "\u9fff" for c in a):
-            return f"{a}，{b}"
-        return f"{a}, {b}"
-    a, b = authors[0], authors[1]
-    if any("\u4e00" <= c <= "\u9fff" for c in a):
-        return f"{a}，{b}，等"
-    return f"{a}, {b}, et al"
+    if len(authors) <= 3:
+        if chinese:
+            return "，".join(authors)
+        return ", ".join(authors)
+    a, b, c = authors[0], authors[1], authors[2]
+    if chinese:
+        return f"{a}，{b}，{c}，等"
+    return f"{a}, {b}, {c}, et al"
 
 
 def _author_title_sep(author_str: str) -> str:
@@ -80,10 +80,22 @@ def format_gbt7714(ref):
     """Format one reference entry (GB/T 7714-2015 style)."""
     authors = ref.get("authors", [])
     author_str = _author_string(authors)
-    sep = _author_title_sep(author_str)
     year = ref.get("year", "")
     title = ref.get("title", "")
     ref_type = ref.get("type", "J")
+    chinese = _is_chinese_ref(ref)
+
+    if chinese and ref_type == "J":
+        venue = ref.get("venue", "")
+        volume = ref.get("volume", "")
+        issue = ref.get("issue", "")
+        pages = ref.get("pages", "")
+        vol_issue = volume
+        if issue:
+            vol_issue = f"{volume}({issue})"
+        return f"{author_str}.{title}[J].{venue},{year},{vol_issue}:{pages}."
+
+    sep = _author_title_sep(author_str)
 
     if ref_type == "M":
         edition = ref.get("edition", "")
@@ -165,7 +177,7 @@ def build_reference_block():
     if chinese:
         lines.append("中文文献")
         for ref in chinese:
-            lines.append(f"[{idx}] {format_gbt7714(ref)}")
+            lines.append(f"[{idx}]{format_gbt7714(ref)}")
             idx += 1
     if foreign:
         lines.append("外文文献")
