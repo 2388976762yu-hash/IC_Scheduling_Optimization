@@ -41,7 +41,7 @@ INTEXT_REPLACEMENTS = (
 WD_REPLACE_ALL = 2
 
 
-INTEXT_REPLACEMENTS = (
+def replace_in_cell(cell, old: str, new: str, *, dry_run: bool) -> int:
     if old == new or old not in cell.Range.Text:
         return 0
     if dry_run:
