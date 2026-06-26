@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from __future__ import annotations
+
 """Fill official Nankai 开题报告 template tables.
 
 封面与 Table 1 / Table 2 基础信息（姓名、题目、课题来源、导师等）
@@ -10,6 +12,7 @@
 """
 import argparse
 import os
+import re
 import shutil
 import stat
 import subprocess
@@ -67,10 +70,17 @@ def _author_string(authors):
     return f"{a}, {b}, et al"
 
 
+def _author_title_sep(author_str: str) -> str:
+    if author_str.endswith("."):
+        return f"{author_str} "
+    return f"{author_str}. "
+
+
 def format_gbt7714(ref):
     """Format one reference entry (GB/T 7714-2015 style)."""
     authors = ref.get("authors", [])
     author_str = _author_string(authors)
+    sep = _author_title_sep(author_str)
     year = ref.get("year", "")
     title = ref.get("title", "")
     ref_type = ref.get("type", "J")
@@ -81,14 +91,14 @@ def format_gbt7714(ref):
         place = ref.get("place", "")
         publisher = ref.get("publisher", "")
         return (
-            f"{author_str}. {title}[M]. {ed_part}{place}: {publisher}, {year}."
+            f"{sep}{title}[M]. {ed_part}{place}: {publisher}, {year}."
         )
 
     if ref_type == "C":
         venue = ref.get("venue", "")
         pages = ref.get("pages", "")
         page_part = f": {pages}" if pages else ""
-        return f"{author_str}. {title}[C]//{venue}. {year}{page_part}."
+        return f"{sep}{title}[C]//{venue}. {year}{page_part}."
 
     # Journal [J]
     venue = ref.get("venue", "")
@@ -98,7 +108,7 @@ def format_gbt7714(ref):
     vol_issue = volume
     if issue:
         vol_issue = f"{volume}({issue})"
-    return f"{author_str}. {title}[J]. {venue}, {year}, {vol_issue}: {pages}."
+    return f"{sep}{title}[J]. {venue}, {year}, {vol_issue}: {pages}."
 
 
 def _first_author(ref):
@@ -110,11 +120,33 @@ def _is_chinese_ref(ref):
     return any("\u4e00" <= c <= "\u9fff" for c in _first_author(ref))
 
 
+def _repair_western_authors(authors: list[str]) -> list[str]:
+    """Rejoin YAML flow-list splits like ['Panwalkar', 'S. S.', 'W. Iskander']."""
+    if not authors or any("\u4e00" <= c <= "\u9fff" for c in authors[0]):
+        return authors
+
+    def initials_only(s: str) -> bool:
+        return bool(re.match(r"^([A-Z](-[A-Z])?\.\s*)+$", s.strip()))
+
+    merged: list[str] = []
+    buf = authors[0]
+    for part in authors[1:]:
+        if initials_only(part):
+            buf = f"{buf}, {part}"
+        else:
+            merged.append(buf)
+            buf = part
+    merged.append(buf)
+    return merged
+
+
 def load_references():
     if yaml is None:
         raise RuntimeError("PyYAML required: pip install pyyaml")
     data = yaml.safe_load(BIBLIOGRAPHY.read_text(encoding="utf-8"))
     refs = data.get("references", [])
+    for ref in refs:
+        ref["authors"] = _repair_western_authors(ref.get("authors", []))
     chinese = sorted(
         [r for r in refs if _is_chinese_ref(r)],
         key=lambda r: r["sort_key"].upper(),
