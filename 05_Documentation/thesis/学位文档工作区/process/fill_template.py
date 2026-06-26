@@ -46,17 +46,25 @@ METADATA_CHECK_KEYS = (
 
 
 def _author_string(authors):
+    """GB/T 7714 list authors: ≤2 list all; ≥3 list first two + 等 / et al."""
+    if not authors:
+        return ""
     if len(authors) == 1:
-        return authors[0].split(",")[0].strip()
+        a = authors[0]
+        if any("\u4e00" <= c <= "\u9fff" for c in a):
+            return a
+        if ", " in a:
+            return a
+        return a.split(",")[0].strip()
     if len(authors) == 2:
         a, b = authors
         if any("\u4e00" <= c <= "\u9fff" for c in a):
             return f"{a}，{b}"
         return f"{a}, {b}"
-    first = authors[0].split(",")[0].strip()
-    if any("\u4e00" <= c <= "\u9fff" for c in first):
-        return f"{first}，等"
-    return f"{first}, et al."
+    a, b = authors[0], authors[1]
+    if any("\u4e00" <= c <= "\u9fff" for c in a):
+        return f"{a}，{b}，等"
+    return f"{a}, {b}, et al"
 
 
 def format_gbt7714(ref):
