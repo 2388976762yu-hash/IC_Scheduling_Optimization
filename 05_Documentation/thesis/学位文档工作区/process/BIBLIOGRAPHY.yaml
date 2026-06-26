@@ -1,21 +1,22 @@
 # 参考文献唯一真源
 # 列表生成：中文文献（拼音序）→ 外文文献（字母序），编号连续
 # 正文引用格式：作者（年份）
-# 最后核实：2026-06-24
+# 最后核实：2026-06-26
 # verification 字段：Google Scholar 或 DOI 检索确认
 
 references:
-  - id: akcali2003
-    sort_key: Akcali
-    authors: [Akçali, S., R. Uzsoy, P. M. Varma]
+  - id: monch2003
+    sort_key: Monch
+    authors: [Mönch, L., I. Habenicht]
     year: 2003
     type: C
     title: "Simulation-based assessment of batching heuristics in semiconductor manufacturing"
     venue: "Proceedings of the 2003 Winter Simulation Conference"
-    pages: "1670-1678"
+    pages: "1338-1345"
     doi: null
-    verification: "https://scholar.google.com/scholar?q=Simulation-based+assessment+batching+heuristics+Ak%C3%A7ali+2003"
+    verification: "https://informs-sim.org/wsc03papers/167.pdf"
     topics: [batching, simulation, semiconductor]
+    note: "Replaces misattributed akcali2003; WSC 2003 pp.1338-1345"
 
   - id: banks2010
     sort_key: Banks
@@ -37,10 +38,10 @@ references:
     title: "Simulation optimization with PSO and OCBA for semiconductor back-end assembly"
     venue: "Journal of Industrial and Production Engineering"
     volume: "30"
-    issue: "8"
-    pages: "493-505"
-    doi: "10.1080/21681015.2013.867950"
-    verification: "https://doi.org/10.1080/21681015.2013.867950"
+    issue: "7"
+    pages: "452-460"
+    doi: "10.1080/21681015.2013.860926"
+    verification: "https://doi.org/10.1080/21681015.2013.860926"
     topics: [backend assembly, simulation optimization]
 
   - id: chenritzo2011
@@ -98,16 +99,20 @@ references:
     verification: "https://doi.org/10.1016/j.swevo.2025.102252"
     topics: [backend assembly, DRL, simulation optimization]
 
-  - id: fowler2008
-    sort_key: Fowler
-    authors: [Fowler, J. W., L. Mönch, S. Mason, O. Rose]
-    year: 2008
-    type: C
-    title: "Simulation-based scheduling: Status and future directions"
-    venue: "Proceedings of the 2008 Winter Simulation Conference"
-    pages: "3373-3381"
-    verification: "https://scholar.google.com/scholar?q=Simulation-based+scheduling+Fowler+2008+WSC"
-    topics: [simulation scheduling, survey]
+  - id: monch2011
+    sort_key: Monch
+    authors: [Mönch, L., J. W. Fowler, S. Dauzère-Pérès, S. J. Mason, O. Rose]
+    year: 2011
+    type: J
+    title: "A survey of problems, solution techniques, and future challenges in scheduling semiconductor manufacturing operations"
+    venue: "Journal of Scheduling"
+    volume: "14"
+    issue: "6"
+    pages: "583-599"
+    doi: "10.1007/s10951-010-0222-9"
+    verification: "https://doi.org/10.1007/s10951-010-0222-9"
+    topics: [simulation scheduling, survey, semiconductor]
+    note: "Replaces phantom fowler2008 WSC entry"
 
   - id: framinan2004
     sort_key: Framinan
@@ -117,21 +122,21 @@ references:
     title: "Efficient heuristics for flowshop sequencing with objectives of makespan and flowtime minimisation"
     venue: "European Journal of Operational Research"
     volume: "141"
-    issue: "1"
-    pages: "88-98"
-    doi: "10.1016/S0377-2217(02)00144-7"
-    verification: "https://doi.org/10.1016/S0377-2217(02)00144-7"
+    issue: "3"
+    pages: "559-569"
+    doi: "10.1016/s0377-2217(01)00278-8"
+    verification: "https://doi.org/10.1016/s0377-2217(01)00278-8"
     topics: [flow shop, makespan]
 
   - id: habenicht2002
     sort_key: Habenicht
-    authors: [Habenicht, W., L. Mönch]
+    authors: [Habenicht, I., L. Mönch]
     year: 2002
     type: C
-    title: "Integration of advanced dispatching rules for batching tools in wafer fabs"
+    title: "A finite-capacity beam search algorithm for production scheduling in semiconductor manufacturing"
     venue: "Proceedings of the 2002 Winter Simulation Conference"
-    pages: "1862-1867"
-    verification: "https://scholar.google.com/scholar?q=Habenicht+M%C3%B6nch+dispatching+batching+2002"
+    pages: "1406-1413"
+    verification: "https://informs-sim.org/wsc02papers/140.pdf"
     topics: [dispatching, batching, wafer fab]
 
   - id: hoppe2025
@@ -158,8 +163,8 @@ references:
     volume: "113"
     issue: "2"
     pages: "390-434"
-    doi: "10.1016/S0377-2217(98)00419-1"
-    verification: "https://doi.org/10.1016/S0377-2217(98)00419-1"
+    doi: "10.1016/s0377-2217(98)00113-1"
+    verification: "https://doi.org/10.1016/s0377-2217(98)00113-1"
     topics: [job shop, survey]
 
   - id: klemmt2011
@@ -197,8 +202,8 @@ references:
     title: "Scheduling a multi-chip package assembly line with reentrant processes and unrelated parallel machines"
     venue: "Proceedings of the 2008 Winter Simulation Conference"
     pages: "2286-2291"
-    doi: "10.1109/WSC.2008.4736407"
-    verification: "https://doi.org/10.1109/WSC.2008.4736407"
+    doi: "10.1109/WSC.2008.4736332"
+    verification: "https://doi.org/10.1109/WSC.2008.4736332"
     topics: [MCP assembly, reentrant, parallel machines]
 
   - id: lee2011
@@ -256,16 +261,20 @@ references:
     verification: "https://scholar.google.com/scholar?q=Multi-Action+Self-Improvement+Luttmann+Xie+ICLR+2026"
     topics: [NCO, scheduling, FFSP]
 
-  - id: monch2001
+  - id: monch2005
     sort_key: Monch
-    authors: [Mönch, L., H. D. Habenicht, J. W. Fowler, S. Mason]
-    year: 2001
-    type: C
+    authors: [Mönch, L., H. Balasubramanian, J. W. Fowler, M. E. Pfund]
+    year: 2005
+    type: J
     title: "Heuristic scheduling of jobs on parallel batch machines with incompatible job families and unequal ready times"
-    venue: "Proceedings of the 2001 Winter Simulation Conference"
-    pages: "1436-1444"
-    verification: "https://scholar.google.com/scholar?q=M%C3%B6nch+parallel+batch+machines+2001+WSC"
+    venue: "Computers & Operations Research"
+    volume: "32"
+    issue: "11"
+    pages: "2731-2750"
+    doi: "10.1016/j.cor.2004.04.001"
+    verification: "https://doi.org/10.1016/j.cor.2004.04.001"
     topics: [batch machines, heuristics]
+    note: "Replaces misdated monch2001 WSC entry; journal version 2005"
 
   - id: panwalkar1977
     sort_key: Panwalkar
@@ -293,32 +302,35 @@ references:
     verification: "https://scholar.google.com/scholar?q=Pinedo+Scheduling+Theory+Algorithms+Systems+5th+2016"
     topics: [scheduling theory, tardiness]
 
-  - id: potts1982
+  - id: potts1989
     sort_key: Potts
-    authors: [Potts, C. N., L. N. Van Wassenhove]
-    year: 1982
+    authors: [Potts, C. N., K. R. Baker]
+    year: 1989
     type: J
-    title: "Decomposition in single and multistage scheduling problems"
-    venue: "Naval Research Logistics Quarterly"
-    volume: "29"
-    issue: "2"
-    pages: "207-218"
-    doi: "10.1002/nav.3800290207"
-    verification: "https://doi.org/10.1002/nav.3800290207"
+    title: "Flow shop scheduling with lot streaming"
+    venue: "Operations Research Letters"
+    volume: "8"
+    issue: "6"
+    pages: "297-303"
+    doi: "10.1016/0167-6377(89)90013-8"
+    verification: "https://doi.org/10.1016/0167-6377(89)90013-8"
     topics: [lot streaming, decomposition]
+    note: "Replaces erroneous potts1982 entry; lot streaming foundation"
 
   - id: ruiz2006
     sort_key: Ruiz
-    authors: [Ruiz, R., J. L. Maroto, C. Alcaraz]
+    authors: [Ruiz, R., C. Maroto]
     year: 2006
     type: J
-    title: "Two robust scheduling algorithms for a hybrid flowshop environment"
-    venue: "Annals of Operations Research"
-    volume: "138"
-    pages: "271-286"
-    doi: "10.1007/s10479-005-2466-7"
-    verification: "https://doi.org/10.1007/s10479-005-2466-7"
+    title: "A genetic algorithm for hybrid flowshops with sequence dependent setup times and machine eligibility"
+    venue: "European Journal of Operational Research"
+    volume: "169"
+    issue: "3"
+    pages: "781-800"
+    doi: "10.1016/j.ejor.2004.06.038"
+    verification: "https://doi.org/10.1016/j.ejor.2004.06.038"
     topics: [hybrid flow shop]
+    note: "Replaces phantom Annals OR entry; hybrid flowshop GA"
 
   - id: stubbe2011
     sort_key: Stubbe
@@ -344,8 +356,9 @@ references:
     volume: "30"
     issue: "2"
     pages: "301-319"
-    doi: "10.1080/00207549208942914"
-    verification: "https://doi.org/10.1080/00207549208942914"
+    doi: null
+    verification: "https://scholar.google.com/scholar?q=Uzsoy+identical+sub-lots+1992+International+Journal+Production+Research"
+    note: "Former DOI 10.1080/00207549208942914 maps to wrong article in Crossref"
     topics: [lot splitting, single machine]
 
   - id: wang2023
@@ -362,9 +375,9 @@ references:
     verification: "https://doi.org/10.13196/j.cims.2022.0646"
     topics: [batch processing, scheduling, RL]
 
-  - id: wu2023
-    sort_key: Wu
-    authors: [Wu, K., J. W. Fowler, S. Mason, L. Mönch]
+  - id: fang2023
+    sort_key: Fang
+    authors: [Fang, J., B. Cheang, A. Lim]
     year: 2023
     type: J
     title: "Problems and solution methods of machine scheduling in semiconductor manufacturing operations: A survey"
@@ -375,6 +388,7 @@ references:
     doi: "10.3390/su151713012"
     verification: "https://doi.org/10.3390/su151713012"
     topics: [survey, semiconductor scheduling]
+    note: "Replaces misattributed wu2023 (authors were wrong)"
 
   - id: xuan2020
     sort_key: Xuan
@@ -391,15 +405,16 @@ references:
     topics: [flexible flow shop, hybrid genetic]
     note: "venue year 2020; DOI landing confirms publication"
 
-  - id: yedidsion2021
+  - id: yedidsion2022
     sort_key: Yedidsion
     authors: [Yedidsion, H., P. Dawadi, D. Norman, E. Zarifoglu]
-    year: 2021
+    year: 2022
     type: C
     title: "Deep reinforcement learning for queue time management in semiconductor manufacturing"
-    venue: "Proceedings of the 2021 Winter Simulation Conference"
-    pages: "1-12"
-    verification: "https://scholar.google.com/scholar?q=Yedidsion+queue+time+reinforcement+learning+2021+WSC"
+    venue: "Proceedings of the 2022 Winter Simulation Conference"
+    pages: "3275-3284"
+    doi: "10.1109/WSC57314.2022.10015463"
+    verification: "https://doi.org/10.1109/WSC57314.2022.10015463"
     topics: [DRL, due date, queue time]
 
   - id: zhao2025
@@ -420,9 +435,12 @@ references:
     sort_key: Zhou
     authors: [Zhou, L., L. Zhang, B. K. P. Horn]
     year: 2020
-    type: C
+    type: J
     title: "Deep reinforcement learning-based dynamic scheduling in smart manufacturing"
-    venue: "Proceedings of the 2020 Winter Simulation Conference"
-    pages: "865-876"
-    verification: "https://scholar.google.com/scholar?q=Zhou+deep+reinforcement+learning+dynamic+scheduling+2020+WSC"
+    venue: "Procedia CIRP"
+    volume: "93"
+    pages: "383-388"
+    doi: "10.1016/j.procir.2020.05.163"
+    verification: "https://doi.org/10.1016/j.procir.2020.05.163"
     topics: [DRL, dynamic scheduling]
+    note: "Journal article; not WSC 2020"

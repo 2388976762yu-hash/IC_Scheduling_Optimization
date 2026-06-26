@@ -25,6 +25,12 @@ CONTENT_ROWS = (11, 13, 15)
 
 # 长串优先；只替换正文中的双作者旧写法 → 第一著者等
 INTEXT_REPLACEMENTS = (
+    ("Potts和Van Wassenhove（1982）", "Potts等（1989）"),
+    ("Akçali等（2003）", "Mönch等（2003）"),
+    ("Mönch等（2001）", "Mönch等（2005）"),
+    ("Fowler等（2008）", "Mönch等（2011）"),
+    ("Wu等（2023）", "Fang等（2023）"),
+    ("Yedidsion等（2021）", "Yedidsion等（2022）"),
     ("Sang-Jin Lee 与 Tae-Eog Lee（", "Lee等（"),
     ("Potts和Van Wassenhove（", "Potts等（"),
     ("Panwalkar和Iskander（", "Panwalkar等（"),
