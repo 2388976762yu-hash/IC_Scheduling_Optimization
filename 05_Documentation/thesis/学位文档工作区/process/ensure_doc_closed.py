@@ -155,7 +155,7 @@ def main() -> int:
     except RuntimeError as exc:
         print(exc, file=sys.stderr)
         return 1
-    print("OK: 学位文档均未占用，可安全运行 fill_template.py / fill_midterm.py。")
+    print("OK: 学位文档均未占用，可安全只读打开（如 read_submission_docs.py）。")
     return 0
 
 

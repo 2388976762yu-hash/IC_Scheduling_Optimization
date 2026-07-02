@@ -1,6 +1,6 @@
 # 开题正文专业术语对照（精校真源）
 
-> 与 [`AUTO_Model2.0_Architecture_Document.md`](../../../02_Simulation_Model/modeldetail/AUTO_Model2.0_Architecture_Document.md) 口径一致。  
+> 工序顺序与设备规模真源：[`MODEL_TRUTH.md`](MODEL_TRUTH.md) §1（**Taping→BG→DS→DA→WB→MOLD**）。  
 > 正文以**中文为主、英文专名保留**，避免机翻式括号堆砌。  
 > **`audit_terminology.py` 据此自动审计 `section_content.py`。**
 
@@ -8,14 +8,17 @@
 
 ## 工序与设备
 
-| 英文/代号 | 正文用语 | 说明 |
-|-----------|----------|------|
-| D/S | 晶圆切割D/S | Die Saw |
-| DA | 粘片DA | Die Attach |
-| WB | 焊线WB | Wire Bond |
-| Mold | 塑封Mold | — |
-| B/G | 键合/研磨B/G | Ball attach / Grind |
-| Taping | 贴带包装Taping | — |
+**六工序唯一顺序（数据 / Simio 流转 / 正文/PPT 一致）：**  
+**Taping → BG → DS → DA → WB → MOLD**
+
+| 序号 | 英文/代号 | 正文用语 | Simio Server | 台数 |
+|------|-----------|----------|--------------|------|
+| 1 | Taping | 贴带包装Taping | Server_Taping | 8 |
+| 2 | B/G | 键合/研磨B/G | Server_BG | 17 |
+| 3 | D/S | 晶圆切割D/S | Server_DS | 31 |
+| 4 | DA | 粘片DA | Server_DA | 112 |
+| 5 | WB | 焊线WB | Server_WB | 284 |
+| 6 | MOLD | 塑封MOLD | Server_MOLD | 7 |
 | Server | 工序站Server | Simio 加工站，非 IT「服务器」 |
 | Sink | 汇点Sink | 产线终点 |
 | Worker | 搬运工Worker | 跨工序物流 |

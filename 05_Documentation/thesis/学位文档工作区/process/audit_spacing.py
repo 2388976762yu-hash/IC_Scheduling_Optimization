@@ -14,7 +14,7 @@ OUTPUT = KAITI_DOC
 
 sys.path.insert(0, str(PROCESS))
 
-from fill_template import build_section1, build_reference_block  # noqa: E402
+from bibliography_format import build_reference_block, build_section1  # noqa: E402
 from section_content import SECTION1_BODY, SECTION2, SECTION3  # noqa: E402
 
 

@@ -15,12 +15,12 @@ def _compact(text: str) -> str:
 THESIS_TITLE_CN = "多目标优化的半导体后端制造生产排程研究"
 THESIS_TITLE_EN = (
     "Multi-Objective Optimization of Production Scheduling in "
-    "Semiconductor Backend Manufacturing"
+    "Semiconductor Back-End Manufacturing"
 )
-KEYWORDS_CN = "半导体封装后端；生产排程；离散事件仿真；多目标优化；Simio"
+KEYWORDS_CN = "半导体封装后端；生产排程；离散事件仿真；多目标优化；仿真优化"
 KEYWORDS_EN = (
-    "semiconductor backend packaging; production scheduling; "
-    "discrete-event simulation; multi-objective optimization; Simio"
+    "semiconductor back-end packaging; production scheduling; "
+    "discrete-event simulation; multi-objective optimization; simulation optimization"
 )
 
 # 考核表 Table2 勾选项（在模板原有括号行上打 √，不整格覆盖）
@@ -34,14 +34,14 @@ MIDTERM_H2 = "二、存在的问题与下一步工作计划"
 MIDTERM_H3 = "三、已取得研究成果"
 
 MIDTERM_ABSTRACT = _compact(
-    """本研究面向典型存储类半导体封装后端产线调度优化问题，以企业脱敏 Simio 导入数据为基准，建立涵盖编带、分拣、装片、键合、塑封、烘烤及切筋六工序的离散事件仿真模型，完整纳入订单释放、Order—MLot—Magazine—SubLot 多级批次链、Worker 搬运输送及 DA/WB 工序换型 Setup 等关键约束。研究采用 MakeSpan 与准交惩罚 Penalty 双指标，构建加权 Objective=0.7×MakeSpan+0.3×Penalty 评价函数，并通过 Experiment 接入 MLotFactor、SubLotFactor 情景生成器开展系统参数扫描。已完成基准情景验证与 26 组批次因子全因子网格实验，基准 MakeSpan 为 78.40，网格扫描 Objective 最优 50.61；另有释放顺序对照实验表明，释放逻辑须与 Source 层交期驱动释放机制协同设计。当前正推进负荷校准、MakeSpan 统计口径统一、Source 层 EDD 释放与队列派工规则对比及与 FIFO 基线对照，为后续学位论文系统实验与正式论文撰写奠定基础。"""
+    """本研究面向典型存储类半导体封装后端产线调度优化问题，以企业脱敏 Simio 导入数据为基准，建立涵盖 Taping、BG、D/S、DA、WB、MOLD 六工序的离散事件仿真模型，完整纳入订单释放、Order—MLot—Magazine—SubLot 多级批次链、Worker 搬运输送及 DA/WB 工序换型 Setup 等关键约束。研究采用 MakeSpan 与准交惩罚 Penalty 双指标，构建加权 Objective=0.7×MakeSpan+0.3×Penalty 评价函数，并通过 Experiment 接入 MLotFactor、SubLotFactor 情景生成器开展系统参数扫描。已完成基准情景验证与 26 组批次因子全因子网格实验，基准 MakeSpan 为 78.40，网格扫描 Objective 最优 50.61；另有释放顺序对照实验表明，释放逻辑须与 Source 层交期驱动释放机制协同设计。当前正推进负荷校准、MakeSpan 统计口径统一、Source 层 EDD 释放与队列派工规则对比及与 FIFO 基线对照，为后续学位论文系统实验与正式论文撰写奠定基础。"""
 )
 
 MIDTERM_SECTION1 = _compact(
     """1.1 研究进展概况
 自开题以来，本研究沿数据基准化→离散事件仿真建模→Experiment 实验→批次因子与释放派工规则扫描→负荷校准→论文凝练的技术路线推进，研究内容与开题报告保持一致，围绕典型存储类半导体封装后端产线的 MakeSpan 与准交绩效开展仿真优化研究。
 1.2 仿真模型与实验框架
-已建立涵盖 D/S→DA→WB→Mold→B/G→Taping 六工序的 Simio 模型，并与企业脱敏 Simio 导入数据绑定：Orders 表 41 条订单、Materials 表 16 种物料、MachineConfig 合计 459 台设备。加工时间按 CurrentQty/UPH 计算；DA/WB 每批转入与转出搬运各 3 分钟，Assigned_DA_Group 变化时触发 10 分钟换型 Setup。订单 Order 经 Separator 链依次形成制造批次 MLot、弹夹批次 Magazine 与子批次 SubLot，并纳入 Worker 搬运逻辑。Experiment 已定义 MakeSpan、Penalty 与 Objective=0.7×MakeSpan+0.3×Penalty 三个 Response；MLotFactor、SubLotFactor 作为 Model Properties 接入 Scenario Generator。
+已建立涵盖 Taping→BG→D/S→DA→WB→MOLD 六工序的 Simio 模型，并与企业脱敏 Simio 导入数据绑定：Orders 表 41 条订单、Materials 表 16 种物料、MachineConfig 合计 459 台 Server，按 Station 顺序为 Taping 8 台、B/G 17 台、D/S 31 台、DA 112 台、WB 284 台、MOLD 7 台。加工时间按 CurrentQty/UPH 计算；DA/WB 每批转入与转出搬运各 3 分钟，Assigned_DA_Group 变化时触发 10 分钟换型 Setup。订单 Order 经 Separator 链依次形成制造批次 MLot、弹夹批次 Magazine 与子批次 SubLot，并纳入 Worker 搬运逻辑。Experiment 已定义 MakeSpan、Penalty 与 Objective=0.7×MakeSpan+0.3×Penalty 三个 Response；MLotFactor、SubLotFactor 作为 Model Properties 接入 Scenario Generator。
 1.3 阶段性仿真实验结果
 第一，因子均为 1.0 的基准情景：MakeSpan=78.40，Penalty=0，Objective=54.88，41 单均可完整流转，绩效计算链路验证通过。
 第二，26 情景 MLotFactor×SubLotFactor 全因子网格扫描：Objective 最优 50.61，对应 MLotFactor=1.0、SubLotFactor=0.75；部分因子组合 Penalty 高达 760，表明批次缩放与准交约束存在显著非线性耦合。

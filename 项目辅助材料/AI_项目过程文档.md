@@ -25,6 +25,8 @@
 
 ### 1.1 主流程
 
+> ⚠️ **STALE**：本节 ASCII 图与 Excel / Simio 真源不符。工序顺序见 [`MODEL_TRUTH.md`](../05_Documentation/thesis/学位文档工作区/process/MODEL_TRUTH.md)：**Taping → BG → DS → DA → WB → MOLD**。
+
 ```
 Source_Orders
   → Separator_MLot

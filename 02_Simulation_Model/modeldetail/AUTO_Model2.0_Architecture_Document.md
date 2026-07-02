@@ -1,5 +1,9 @@
 # 📊 AUTO_Model2.0 完整仿真模型架构文档
 
+> ⚠️ **STALE — 工序顺序以 [`MODEL_TRUTH.md`](../../05_Documentation/thesis/学位文档工作区/process/MODEL_TRUTH.md) 为准**  
+> 本文 §1.2、§5 流程图写为 DS→…→Taping，与 Excel `MachineConfig` 及 Simio `Input_*_Entered` **不符**。  
+> 设备台数、UPH 公式、批次链等细节仍有参考价值；**写论文/PPT 前必读 MODEL_TRUTH**。
+
 ## SanDisk 半导体后端制造排程优化仿真系统
 
 ---

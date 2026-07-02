@@ -10,16 +10,13 @@
 - 本文件及 [`FORMAT_SPEC.md`](FORMAT_SPEC.md)、[`METADATA_POLICY.md`](METADATA_POLICY.md)、[`ANONYMIZATION.md`](ANONYMIZATION.md) 均为**活规则**，**可随时修改**，不必等 Word 定稿。
 - **以仓库最新 markdown 为准**；[`02_开题报告_提交版.doc`](../02_开题报告_提交版.doc) 是输出物/提交物，不是规则真源。
 - 每次改规则或正文策略 → [`WRITING_LOG.md`](WRITING_LOG.md) **追加一行**（日期、摘要、文件）。
-- AI/协作者动笔前：读本文件 §1 真源表 + 下文；与用户口头要求冲突时，**以用户为准**并回写本文件。
+- AI/协作者动笔前：读本文件 §1 真源表 + [`MODEL_TRUTH.md`](MODEL_TRUTH.md) §0 工作流；与用户口头要求冲突时，**以用户为准**并回写本文件。
 
-### 0.1 用户改 Word、Agent 只读后端（强制）
+### 0.1 用户改 Word、Agent 只读后端（强制 · 永久）
 
-- **学院 `.doc` 由用户在 WPS/Word 手改**；Agent **默认只读** `开题报告/*.doc`、`02_开题报告_提交版.doc`，**不得**擅自运行 `fill_template.py`、`fill_midterm.py`、`fix_references_local.py` 或任何写回 Word 的操作。
-- **同步后端前必须先读 doc**：不得凭记忆、`section_content.py` 旧内容或上一轮对话猜测用户改了什么。须用 COM **只读**打开提交版 `.doc`，提取 R11/R13/R15（开题）或中期正文段落，**以 doc 当前文本为准**再改 py/md。
-  - 开题：`python read_submission_docs.py --kaiti`（或同等只读脚本）
-  - 中期：`python read_submission_docs.py --midterm`
-- 用户说「校正/删改正文」时：含义是 **读 doc → 仅更新后端真源**（`section_content.py`、`midterm_section_content.py` 等），**不**反向覆盖用户 Word。
-- 仅当用户**明确**要求「写回 Word / 跑 fill 脚本」时，才可执行写 doc 流程；且须先 `ensure_doc_closed.py`。
+- **学院 `.doc` 与用户 `.pptx` 只由用户在 WPS/Word/PPT 手改**。Agent **只读**获取信息（如 `read_submission_docs.py`）；**禁止**写入、Save、COM 改写、python-pptx 覆盖。
+- **同步后端前必须先读 doc**：不得凭记忆、`section_content.py` 或上一轮对话猜测。开题：`python read_submission_docs.py --kaiti`；中期：`python read_submission_docs.py --midterm`。
+- 用户说「校正/删改正文」→ **读 doc → 仅更新** `section_content.py` / `midterm_section_content.py` 等 py/md，**不**反向覆盖 Word。
 - **禁止**根据用户口头描述推断「可能还删了别的句」；用户说删一句，就只动 doc 里证实缺失的那一句对应位置。
 
 ---
@@ -28,9 +25,10 @@
 
 | 领域 | 唯一真源 | 产出 / 下游 | 专项说明 |
 |------|----------|-------------|----------|
+| **模型与数据事实** | [`MODEL_TRUTH.md`](MODEL_TRUTH.md) | 工序顺序、设备、UPH、Simio 口径 | **优先于** Architecture 文档 |
 | **写作策略** | **本文件** | `section_content.py` | — |
 | **正文内容** | `section_content.py` | R11/R13/R15 | 不写表头字段 |
-| **格式与排版** | `FORMAT_SPEC.md` | `fill_template.py` 字体行距 | 不重复策略条文 |
+| **格式与排版** | `FORMAT_SPEC.md` | WPS 手调 | 不重复策略条文 |
 | **表头 / 封面** | `2120253828-…开题报告.doc` | 复制为 02 的表头 | [`METADATA_POLICY.md`](METADATA_POLICY.md) |
 | **参考文献** | `BIBLIOGRAPHY.yaml` | R11 末尾列表 | GB/T 7714，见 FORMAT_SPEC |
 | **题目** | `TITLE_LOCK.md` | 模板 R3 | 个人信息不在此维护 |
@@ -39,20 +37,23 @@
 | **术语** | `TERMINOLOGY.md` | 正文专名 | 换型Setup/弹夹批次Magazine 等 |
 | **审计** | `AUDIT_DIMENSIONS.md` + `audit_proposal.py` | 提交前 D1–D8 门禁 | spacing/framing/terminology/academic/脱敏/一致/引用/文档真源 |
 | **章节结构** | `OUTLINE.md` | 大纲与篇幅 | 非逐字正文 |
-| **提交文件** | `02_开题报告_提交版.doc` | 学院提交 | 手调版式后以 02 为准；bulk 改字走脚本 |
+| **提交文件** | `开题报告/2120253828-…开题报告.doc` | 学院提交 | **用户 WPS 手改真源** |
 
-**禁止**：在多个 md 中重复维护同一规则的不同版本；禁止脚本硬编码表头个人信息。
+**禁止**：在多个 md 中重复维护同一规则的不同版本；禁止脚本硬编码表头个人信息；禁止任何脚本写回 Word。
 
-**工作流真源**：写回 Word 的步骤以 [`METADATA_POLICY.md`](METADATA_POLICY.md) §工作前检查 为准（`ensure_doc_closed.py` → `fill_template.py`）。
+### 1.1 用户手改 PPT/Word 的输出格式（强制）
+
+用户自行在 WPS/Word/PPT 改字时，Agent **只给需修改的完整句子**，每条 **改前一句 + 改后一句**；按文件与页码/章节编号；**禁止**整页替换、禁止 AI 总结腔、禁止强调既往错误。细则见 `.cursor/rules/manual-text-edits.mdc`。
 
 ---
 
 ## 2. 人称、术语与禁写项
 
 - 全文 **「本研究」**，不用「本课题」。
-- 正文**不得出现**：`EXP-xxx`、`D-xxx`、脚本/内部文件名（`CLAIMS.md`、`fill_template.py` 等）、未在当节定义的实验代号。
+- 正文**不得出现**：`EXP-xxx`、`D-xxx`、脚本/内部文件名（`CLAIMS.md`、`section_content.py` 等）、未在当节定义的实验代号。
 - **学位层次、专业名称**已在封面/表头填写，正文**不再**写「管理科学与工程硕士」「管理学硕士」等自指套话；§3.6 收尾写「研究方案」即可，勿贴学位标签。
 - **§5 预期研究成果**：**禁止**写「具体数值结论与图表以学位论文定稿为准」等内部备忘/甩锅句；其余成果表述以用户 Word 手改版为准。
+- **中期考核表关键词**：不写软件产品名（如 Simio）；英文用 **back-end** 连字符；中英文各 5 项一一对应。真源见 `midterm_section_content.py` 的 `KEYWORDS_*`。
 - 英文缩写：首次可直写缩写或简短中文释义，**避免反复括号注释**；后文直接用 DES、EDD、UPH、MakeSpan 等。
 - 学院模板表格内：不用 Markdown 符号（`#`、`**`）。
 
@@ -107,7 +108,7 @@
 
 - 列表真源：`BIBLIOGRAPHY.yaml`（32 篇）。
 - 结构：**中文文献** + **外文文献** 分列；各自按第一作者字母序；编号全文连续 `[1]` 起。
-- 著录格式：GB/T 7714—2015。生成：`fill_template.py`。**手改 02 文献后慎重跑脚本**。
+- 著录格式：GB/T 7714—2015。列表格式见 `bibliography_format.py` + `BIBLIOGRAPHY.yaml`；**Word 里文献由用户手改**。
 
 细则见 [`FORMAT_SPEC.md`](FORMAT_SPEC.md) §参考文献列表。
 
@@ -123,8 +124,7 @@
 
 - 见 [`FORMAT_SPEC.md`](FORMAT_SPEC.md) §Word 单元格排版。
 - **`section_content.py` 禁止在标题之间、标题与正文之间插入空行**（无 `\n\n`）；由 `_compact_spacing()` 保证。
-- **手调后的 `02_开题报告_提交版.doc` 为提交真源**；AI **不得**擅自运行 `fill_template.py --from-template`。
-- 仅在你明确要求 bulk 改字时，才运行 `fill_template.py`（默认就地更新）；跑脚本前须 `ensure_doc_closed.py`。
+- **`开题报告/2120253828-…开题报告.doc` 为提交真源**；AI **不得**用任何脚本覆盖 Word。
 
 ---
 
@@ -140,4 +140,5 @@
 | [`AUDIT_DIMENSIONS.md`](AUDIT_DIMENSIONS.md) | 多维度审计 D1–D8 |
 | [`TERMINOLOGY.md`](TERMINOLOGY.md) | 术语精校 |
 | [`CLAIMS.md`](CLAIMS.md) | 事实断言 ↔ 内部真源 ↔ 正文脱敏表述 |
+| [`MODEL_TRUTH.md`](MODEL_TRUTH.md) | 工序顺序、Excel/Simio/Experiment 事实真源 |
 | [`00_INDEX.md`](../00_INDEX.md) | 目录与项目交叉索引 |

@@ -25,9 +25,11 @@
 | **2026-06-24** | 锁定段落排版：无标题间空行；fill 默认就地更新；禁止 --from-template 覆盖手调 02 | section_content, fill_template, FORMAT_SPEC, WRITING_RULES |
 | **2026-06-24** | 空行审计 audit_spacing.py；fix 参考文献拼接空行；Word R11/R13/R15 重填 | audit_spacing.py, fill_template.py, 02 doc |
 | **2026-06-24** | 建立 D1–D7 多维度审计（AUDIT_DIMENSIONS + audit_*.py）；批次链与数据用语统一 | AUDIT_DIMENSIONS, audit_*.py, section_content, WRITING_RULES |
+| **2026-06-26** | **中期考核表**：英文题目 Back-End；关键词去 Simio、增仿真优化 | midterm_section_content.py, TITLE_LOCK.md |
 | **2026-06-26** | **强制先读 doc 再同步**：新增 `read_submission_docs.py`；禁止猜测多删句 | WRITING_RULES §0.1, read_submission_docs.py |
-| **2026-06-26** | **中期报告用语优化**：去「」技术路线、（1）（2）列举及括号旁注；改第一/第二分条，与 WRITING_RULES §3 一致 | midterm_section_content.py |
-| **2026-06-26** | **Word 用词校正回写真源**：1.3 脱敏数据集表述、2.2 实践意义改写、§2 图2.1 技术路线、§3 删 13% 与 OptQuest 措辞；保留 Fang/Mönch 引用与 §3.2–3.6 全文 | section_content.py, LITERATURE_REVIEW_NOTES.md |
+| **2026-07-02** | **删除全部写 Word 脚本**（fill_template / fill_midterm / insert_tech_route 等）；Word 仅用户 WPS 手改 | 删 py，WRITING_RULES §0.1 |
+| **2026-07-02** | **工序真源统一**：section_content、midterm 改 Taping→MOLD；MANUAL_SYNC_PPT_WORD 供用户手改 PPT/Word | section_content, midterm, MODEL_TRUTH, MANUAL_SYNC |
+| **2026-07-02** | **MODEL_TRUTH.md**：工序唯一顺序；Agent 强制工作流 | MODEL_TRUTH, CLAIMS, TERMINOLOGY, WRITING_RULES |
 
 ## 2026-06-24 修订说明
 

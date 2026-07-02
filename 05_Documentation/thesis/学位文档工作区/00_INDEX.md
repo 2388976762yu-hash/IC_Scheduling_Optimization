@@ -21,6 +21,8 @@
 
 | 领域 | 唯一真源 | 说明 |
 |------|----------|------|
+| **模型与数据** | [`process/MODEL_TRUTH.md`](process/MODEL_TRUTH.md) | 工序 Taping→BG→DS→DA→WB→MOLD |
+| **PPT/Word 手改** | [`process/MANUAL_SYNC_PPT_WORD.md`](process/MANUAL_SYNC_PPT_WORD.md) | 改前/改后对照，不跑 fill 脚本 |
 | **开题写作策略** | [`process/WRITING_RULES.md`](process/WRITING_RULES.md) | §1/§2 拟开展；§3 可写标定数值 |
 | **开题正文** | [`process/section_content.py`](process/section_content.py) | R11/R13/R15 |
 | **中期正文** | [`process/midterm_section_content.py`](process/midterm_section_content.py) | 中期报告 P58 + 考核表摘要 |

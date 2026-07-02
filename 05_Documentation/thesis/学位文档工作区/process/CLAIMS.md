@@ -5,8 +5,8 @@
 
 | ID | 脱敏表述（写入正文） | 内部真源 | 引用键 |
 |----|---------------------|----------|--------|
-| C-001 | 六工序封装后端：D/S→DA→WB→Mold→B/G→Taping | Architecture §1.2 | — |
-| C-002 | 459 台加工设备，DA/WB 为关键资源 | Architecture §2.1 | — |
+| C-001 | 六工序封装后端：Taping→BG→DS→DA→WB→MOLD | MODEL_TRUTH §1；Excel MachineConfig | — |
+| C-002 | 459 台 Server：Taping 8、BG 17、DS 31、DA 112、WB 284、MOLD 7 | MODEL_TRUTH §1；Excel MachineConfig | — |
 | C-003 | 41 条订单、16 种物料，企业一周排产样本 | Simio_Import_Data Orders/Materials | — |
 | C-004 | 批次链：Order→MLot→弹夹批次Magazine→SubLot | Architecture §6.1 | — |
 | C-005 | Objective = 0.7×MakeSpan + 0.3×Penalty | DECISIONS D-004 | — |

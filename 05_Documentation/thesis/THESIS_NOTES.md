@@ -41,7 +41,7 @@
 
 ## 第 1 章 绪论 — 素材
 
-- 半导体后端流程：DS → DA → WB → Mold → BG → Taping
+- 半导体后端流程：**Taping → BG → DS → DA → WB → MOLD**（真源 [`MODEL_TRUTH.md`](学位文档工作区/process/MODEL_TRUTH.md) §1）
 - 排程问题：交期、换型、批次、设备分配
 - 仿真 vs 纯数学模型：考虑 Worker、换型、拆分合并
 - 文献综述四线：见 [LITERATURE_REVIEW_NOTES.md](学位文档工作区/process/LITERATURE_REVIEW_NOTES.md)
@@ -50,7 +50,7 @@
 
 ## 第 3 章 模型 — 素材
 
-- 引用：`02_Simulation_Model/modeldetail/AUTO_Model2.0_Architecture_Document.md`
+- 引用：Simio 主模型见 `MODEL_TRUTH.md`；历史细节可参考 `AUTO_Model2.0_Architecture_Document.md`（§1.2/§5 工序顺序已 STALE）
 - 加工时间：`CurrentQty / UPH`
 - DA/WB：Transfer 3min + Setup 10min
 - 批次链：Order → MLot → Magazine（弹夹批次）→ SubLot → Combiner

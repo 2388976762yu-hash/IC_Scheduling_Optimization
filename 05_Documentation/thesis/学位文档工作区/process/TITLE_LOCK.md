@@ -6,7 +6,7 @@
 |----|------|
 | **锁定日期** | 2026-05-24 || **最后确认** | 2026-06-24 |
 | **中文题目** | **多目标优化的半导体后端制造生产排程研究** |
-| **英文题目** | Multi-Objective Optimization of Production Scheduling in Semiconductor Backend Manufacturing |
+| **英文题目** | Multi-Objective Optimization of Production Scheduling in Semiconductor Back-End Manufacturing |
 
 个人信息（姓名、学号、导师、课题来源、报告日期等）**不在此文件维护**，见 [`2120253828-喻炫琪-研究生开题报告.doc`](../../2120253828-喻炫琪-研究生开题报告.doc) 与 [`METADATA_POLICY.md`](METADATA_POLICY.md)。
 
